@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 
-
-
 class CustomIcon extends StatelessWidget {
   final String path;
   final Color? color;

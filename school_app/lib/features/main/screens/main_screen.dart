@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:school_app/enums/tabs_enum.dart';
 import 'package:school_app/features/home/screens/home_screen.dart';
 import 'package:school_app/features/main/blocs/main_bloc.dart';
-import 'package:school_app/features/school_class/screens/school_class.dart';
+import 'package:school_app/features/school_class/screens/school_class_screen.dart';
+import 'package:school_app/features/student_infomation/student_information_screen.dart';
 import 'package:school_app/utilities/assets.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
@@ -16,12 +17,18 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreen extends State<MainScreen> {
+  int activeIndex = 0 ;
+  void changeActivePage(int index){
+    setState(() {
+      activeIndex = index ;
+    });
+  }
   final List<Widget> _listScreen = [];
   var _selectedTab = TabsList.schoolHome;
   @override
   Widget build(BuildContext context) {
     _listScreen.clear();
-    _listScreen.add(const HomeScreen());
+    _listScreen.add( HomeScreen());
     _listScreen.add(const SchoolClassScreen());
     _listScreen.add( Container(child: Text('Remind'),));
     _listScreen.add( Container(child: Text('Profile'),));
@@ -32,10 +39,6 @@ class _MainScreen extends State<MainScreen> {
           bottomNavigationBar: _bottomNavigationBar);
     }));
   }
-
-  // Widget buildContent () {
-  //
-  // }
 
   Widget get _bottomNavigationBar {
     return BlocBuilder<MainBloc, MainState>(builder: ((context,state) {

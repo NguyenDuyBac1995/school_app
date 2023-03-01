@@ -40,6 +40,9 @@ dependencies:
   equatable: ^2.0.5
   bloc: ^8.1.1
   flutter_bloc: ^8.1.1
+  page_transition: ^2.0.9
+  google_fonts: ^4.0.3
+  logger: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +70,9 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/images/icon1.svg
+    - assets/images/icon2.svg
+    - assets/images/icon3.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
