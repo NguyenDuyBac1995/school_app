@@ -7,7 +7,7 @@ import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/components/common_font.dart';
 
 import '../../../utilities/assets.dart';
-import '../../../utilities/utils/text_styles.dart';
+import '../../../utilities/text_styles.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -38,8 +38,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Container(
-                            height: 300,
-                            width: 280,
+                            height: MediaQuery.of(context).size.height*0.31,
+                            width: MediaQuery.of(context).size.width*0.62,
                             child: SvgPicture.asset(
                               Images.splashImage,
                               fit: BoxFit.cover,

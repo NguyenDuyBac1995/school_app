@@ -1,4 +1,4 @@
-import 'assets.dart';
+import '../utilities/assets.dart';
 
 class Student {
   String name;

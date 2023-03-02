@@ -5,10 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:school_app/utilities/assets.dart';
 import 'package:school_app/utilities/components/common_font.dart';
-
 import '../../../routers/fluro_navigator.dart';
 import '../../../routers/router_generator.dart';
-import '../../../utilities/gradient/gradient_text.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -50,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           alignment: Alignment.center,),
                       ),
                       SizedBox(height: 25),
-                      GradientText('Welcome to',
+                      Common().gradient_text('Welcome to',
                           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                           gradient: LinearGradient(
                               colors: [
@@ -62,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ],
                   ),),
                   Expanded(child:
-                  GradientText('School',
+                  Common().gradient_text('School',
                       style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
                       gradient: LinearGradient(
                           colors: [

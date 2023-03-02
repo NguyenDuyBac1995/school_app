@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:school_app/utilities/components/common_font.dart';
-import 'package:school_app/utilities/dummy_data.dart';
+import 'package:school_app/data/dummy_data.dart';
 
 import '../assets.dart';
 import '../colors.dart';
-import '../utils/string.dart';
-import '../utils/text_styles.dart';
+import '../string.dart';
+import '../text_styles.dart';
 
 class SchoolClassStatus extends StatefulWidget {
   const SchoolClassStatus({Key? key}) : super(key: key);
@@ -160,7 +160,6 @@ class _SchoolClassStatusState extends State<SchoolClassStatus> {
   }
 
   Widget buildSheet(bool change) {
-    print('Data : $change');
     return Container(
         decoration: BoxDecoration(
             color: CustomColors.mainTabColor,
@@ -178,6 +177,9 @@ class _SchoolClassStatusState extends State<SchoolClassStatus> {
                       Text('Bình luận', style: TextStyles.textNotoSizeBold18),
                       IconButton(
                           onPressed: () {
+                            setState(() {
+                              changeSize = false;
+                            });
                             Navigator.pop(context);
                           },
                           icon: Icon(

@@ -3,11 +3,11 @@ import 'package:flutter_svg/svg.dart';
 
 import '../assets.dart';
 import '../colors.dart';
-import '../utils/string.dart';
-import '../utils/text_styles.dart';
+import '../string.dart';
+import '../text_styles.dart';
 
-class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({Key? key}) : super(key: key);
+class NotificationStyle extends StatelessWidget {
+  const NotificationStyle({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -98,12 +98,13 @@ class NotificationScreen extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 10,
+                height: 10,
                 width: 150,
                 child: SvgPicture.asset(Images.underlineItem)),
           )
         ],
       ),
-    );
+    );;
   }
 }
+

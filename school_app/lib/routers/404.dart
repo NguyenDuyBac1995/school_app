@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:school_app/utilities/components/app_bar.dart';
 
 class WidgetNotFound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: appBarCommonV1(context),
       body: Center(
         child: Text('Page not found'),
       ),

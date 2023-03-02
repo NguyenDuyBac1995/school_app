@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:school_app/enums/tabs_enum.dart';
 import 'package:school_app/features/home/screens/home_screen.dart';
+import 'package:school_app/features/infomation_profile//screens/information_profile_screen.dart';
 import 'package:school_app/features/main/blocs/main_bloc.dart';
 import 'package:school_app/features/school_class/screens/school_class_screen.dart';
-import 'package:school_app/features/student_infomation/student_information_screen.dart';
 import 'package:school_app/utilities/assets.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
+
+import '../../remind/screens/remind_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -28,10 +30,10 @@ class _MainScreen extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     _listScreen.clear();
-    _listScreen.add( HomeScreen());
+    _listScreen.add(const HomeScreen());
     _listScreen.add(const SchoolClassScreen());
-    _listScreen.add( Container(child: Text('Remind'),));
-    _listScreen.add( Container(child: Text('Profile'),));
+    _listScreen.add(const RemindScreen());
+    _listScreen.add(const InformationProfileScreen());
 
     return BlocBuilder<MainBloc, MainState>(builder: ((context,state) {
       return Scaffold(

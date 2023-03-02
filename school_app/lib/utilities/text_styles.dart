@@ -13,7 +13,7 @@ class TextStyles{
 
   static var textSize20 = GoogleFonts.inter(
       textStyle: const TextStyle(
-        fontSize: 23,
+        fontSize: 21,
         fontWeight: FontWeight.bold,
         color: CustomColors.textColor,
       )

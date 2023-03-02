@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
-import 'package:school_app/utilities/utils/text_styles.dart';
+import 'package:school_app/utilities/text_styles.dart';
 
 import '../assets.dart';
 
@@ -101,57 +101,75 @@ class Common {
     );
   }
 
-  Widget homeItemStudent(
-      {String? name,
-      String? className,
-      String? teacherName,
-      String? imageAssets,
-      String? itemName,
-      double? width,
-      double? height,
-        Function? callBackLeft,
-        Function? callBackRight,
-      }) {
+  Widget homeItemStudent({
+    String? name,
+    String? className,
+    String? teacherName,
+    String? avatarAssets,
+    String? itemName,
+   required double width,
+   required double height,
+    Function? callBackLeft,
+    Function? callBackRight,
+    bool boxItem = true,
+    VoidCallback? callBackTop,
+  }) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 28, vertical: 20),
       width: width,
       height: height,
       child: Column(
         children: [
-          SizedBox(height: 7),
-          Row(
-            children: [
-              CircleAvatar(child: SvgPicture.asset(imageAssets!), radius: 32),
-              SizedBox(width: 15),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    name ?? '',
-                    style: TextStyles.textSizeBold14,
-                  ),
-                  SizedBox(height: 12),
-                  Text(
-                    className ?? '',
-                    style: TextStyles.textSize12,
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    "Cô $teacherName",
-                    style: TextStyles.textSize12,
-                  )
-                ],
-              )
-            ],
-          ),
-          SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Expanded(child: SizedBox(),flex: 1),
+          Expanded(
+            flex: 3,
+            child: GestureDetector(
+            onTap: () {
+              callBackTop!();
+            },
+            child: Row(
+              children: [
+                Expanded(child: SizedBox(), flex: 1),
+                Expanded(child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleAvatar(child: CustomIcon(avatarAssets!,size: width*0.15), radius: width*0.072,),
+                    SizedBox(width: 15),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          name ?? '',
+                          style: TextStyles.textSizeBold14,
+                        ),
+                        SizedBox(height: 12),
+                        Text(
+                          className ?? '',
+                          style: TextStyles.textSize12,
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          "Cô $teacherName",
+                          style: TextStyles.textSize12,
+                        )
+                      ],
+                    )
+                  ],
+                ),flex: 14)
+              ],
+            ),
+          ),),
+          Expanded(child: SizedBox(),flex: 1),
+          Expanded(
+            flex: 7,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
                 child: Container(
-                  height: 165,
-                  width: 170,
+                  height: height*0.5,
+                  width: width*0.4,
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
                       color: CustomColors.pinkColor,
@@ -165,7 +183,7 @@ class Common {
                   child: Column(
                     children: [
                       SvgPicture.asset(Images.homeItemLeft),
-                      SizedBox(height: 20),
+                      Expanded(child: SizedBox()),
                       Text(itemName ?? '',
                           style: TextStyles.textSizeBold14.copyWith(
                             color: Colors.white,
@@ -173,14 +191,14 @@ class Common {
                     ],
                   ),
                 ),
-                onTap: (){
+                onTap: () {
                   callBackLeft!();
                 },
               ),
               GestureDetector(
                 child: Container(
-                  height: 165,
-                  width: 170,
+                  height: height*0.5,
+                  width: width*0.4,
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
                       color: CustomColors.tabActiveColor,
@@ -195,91 +213,105 @@ class Common {
                     children: [
                       SvgPicture.asset(Images.homeItemRight),
                       SizedBox(height: 20),
-                      Text( 'Nhóm lớp',
-                          style: TextStyles.textSizeBold14
-                          ),
+                      Text('Nhóm lớp', style: TextStyles.textSizeBold14),
                     ],
                   ),
                 ),
-                onTap: (){
+                onTap: () {
                   callBackRight!();
                 },
               ),
             ],
-          )
+          )),
+          Expanded(child: SizedBox(),flex: 1)
         ],
       ),
     );
   }
 
-  Widget commentFonts(
-  {String? strName,
+  Widget commentFonts({
+    String? strName,
     int? scountLike,
     String? strComment,
     double? width,
-}
-      ){
+  }) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Padding(
-        padding: EdgeInsets.only(right: 10),
-          child: CircleAvatar(child: SvgPicture.asset(Images.notificationIcon1),radius: 17)),
-      Expanded(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: CustomColors.tabActiveColor
+      children: [
+        Padding(
+            padding: EdgeInsets.only(right: 10),
+            child: CircleAvatar(
+                child: SvgPicture.asset(Images.notificationIcon1), radius: 17)),
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: CustomColors.tabActiveColor),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(strName ?? '', style: TextStyles.textNotoSizeBold16),
+                    SizedBox(height: 10),
+                    Text(strComment ?? '', style: TextStyles.textNotoSize14),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CustomIcon(IconConstant.statusHeathIcon),
+                    SizedBox(height: 9),
+                    Text(
+                      '${scountLike.toString()} lượt thích',
+                      style: TextStyles.textNotoSize12,
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(strName??'', style: TextStyles.textNotoSizeBold16),
-                  SizedBox(height: 10),
-                  Text(strComment??'', style: TextStyles.textNotoSize14),
-                ],
-              ),
-              Column(
-               crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CustomIcon(IconConstant.statusHeathIcon),
-                  SizedBox(height: 9),
-                  Text('${scountLike.toString()} lượt thích', style: TextStyles.textNotoSize12,)
-                ],
-              )
-            ],
-          ),
-        ),
-      )
-    ],
+        )
+      ],
     );
   }
 
-  Widget buttonCommon ({
-  Widget? textIcon,
+  Widget buttonCommon({
+    Widget? textIcon,
     VoidCallback? callBack,
-}){
-   return GestureDetector(
+  }) {
+    return GestureDetector(
       child: Container(
         height: 50,
         decoration: BoxDecoration(
             color: CustomColors.tabActiveColor,
-            borderRadius: BorderRadius.circular(12)
-        ),
+            borderRadius: BorderRadius.circular(12)),
         child: Center(
           child: textIcon,
         ),
       ),
-      onTap: (){
+      onTap: () {
         callBack!();
       },
+    );
+  }
+
+  Widget gradient_text(
+    String text, {
+    TextStyle? style,
+    required Gradient gradient,
+  }) {
+    return ShaderMask(
+      blendMode: BlendMode.srcIn,
+      shaderCallback: (bounds) => gradient.createShader(
+        Rect.fromLTWH(0, 0, bounds.width, bounds.height),
+      ),
+      child: Text(text, style: style),
     );
   }
 }

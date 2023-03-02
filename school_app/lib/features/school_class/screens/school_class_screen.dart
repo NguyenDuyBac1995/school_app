@@ -13,12 +13,12 @@ class SchoolClassScreen extends StatefulWidget {
 class _SchoolClassScreen extends State<SchoolClassScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: appBarCommonV1(context,
-            strTitle: 'Nguyễn Tú An - Lớp Lá',),
-        body: Container(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: appBarCommonV1(context,
+          strTitle: 'Nguyễn Tú An - Lớp Lá',),
+      body: SafeArea(
+        child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Stack(
