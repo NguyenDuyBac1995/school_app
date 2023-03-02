@@ -6,7 +6,7 @@ import 'package:school_app/utilities/components/app_bar.dart';
 import 'package:school_app/utilities/components/common_font.dart';
 
 import '../../../core/models/data_bundle.dart';
-import '../../../utilities/assets.dart';
+import '../../../utilities/assets_common.dart';
 import '../../../data/dummy_data.dart';
 
 class RemindScreen extends StatefulWidget {

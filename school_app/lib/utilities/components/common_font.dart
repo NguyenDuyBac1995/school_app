@@ -5,31 +5,10 @@ import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
 import 'package:school_app/utilities/text_styles.dart';
 
-import '../assets.dart';
+import '../assets_common.dart';
 
 class Common {
-  Widget logoScreen() {
-    return Container(
-      constraints: BoxConstraints.expand(),
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: SvgPicture.asset(Images.logoImage2),
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Container(
-              padding: EdgeInsets.only(bottom: 140, right: 10),
-              child: SvgPicture.asset(Images.logoImage1),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  TextFormField textFieldLogin({
+  TextFormField loginTextField({
     String? labelValue,
     String? hintvalue,
     bool? validation,
@@ -83,6 +62,33 @@ class Common {
     );
   }
 
+  TextFormField commentTextField({
+    String? hintValue,
+  TextEditingController? controller,
+    Widget? suffixIcon,
+}){
+    return TextFormField(
+      controller: controller,
+      autofocus: true,
+      decoration: InputDecoration(
+        hintText: 'Aa',
+        filled: true,
+        fillColor: Colors.white,
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide:
+            BorderSide(color: Colors.white)),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide:
+            BorderSide(color: Colors.white)),
+        suffixIcon: suffixIcon,
+      ),
+    );
+  }
+
+
+
   Widget glassContainer() {
     return Container(
       decoration: BoxDecoration(
@@ -120,19 +126,20 @@ class Common {
       child: Column(
         children: [
           Expanded(child: SizedBox(),flex: 1),
-          Expanded(
-            flex: 3,
+          Container(
+            height: boxItem?height*0.25:height*0.8,
+            width: width,
             child: GestureDetector(
             onTap: () {
               callBackTop!();
             },
             child: Row(
               children: [
-                Expanded(child: SizedBox(), flex: 1),
-                Expanded(child: Row(
+                const Expanded( flex: 1,child: SizedBox(),),
+                Expanded(flex: 14,child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CircleAvatar(child: CustomIcon(avatarAssets!,size: width*0.15), radius: width*0.072,),
+                    CustomIcon(avatarAssets!,size: 58),
                     SizedBox(width: 15),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -155,75 +162,73 @@ class Common {
                       ],
                     )
                   ],
-                ),flex: 14)
+                ))
               ],
             ),
           ),),
-          Expanded(child: SizedBox(),flex: 1),
-          Expanded(
-            flex: 7,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+          const Expanded(child: SizedBox(),flex: 1),
+          boxItem ?Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              GestureDetector(
-                child: Container(
-                  height: height*0.5,
-                  width: width*0.4,
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                      color: CustomColors.pinkColor,
-                      borderRadius: BorderRadius.circular(32),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.pinkAccent,
-                          offset: Offset(0, 5),
-                        )
-                      ]),
-                  child: Column(
-                    children: [
-                      SvgPicture.asset(Images.homeItemLeft),
-                      Expanded(child: SizedBox()),
-                      Text(itemName ?? '',
-                          style: TextStyles.textSizeBold14.copyWith(
-                            color: Colors.white,
-                          )),
-                    ],
-                  ),
-                ),
-                onTap: () {
-                  callBackLeft!();
-                },
+          GestureDetector(
+            child: Container(
+              height: height*0.52,
+              width: width*0.4,
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                  color: CustomColors.pinkColor,
+                  borderRadius: BorderRadius.circular(32),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.pinkAccent,
+                      offset: Offset(0, 5),
+                    )
+                  ]),
+              child: Column(
+                children: [
+                  SvgPicture.asset(Images.homeItemLeft),
+                  Expanded(child: SizedBox()),
+                  Text(itemName ?? '',
+                      style: TextStyles.textSizeBold14.copyWith(
+                        color: Colors.white,
+                      )),
+                ],
               ),
-              GestureDetector(
-                child: Container(
-                  height: height*0.5,
-                  width: width*0.4,
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                      color: CustomColors.tabActiveColor,
-                      borderRadius: BorderRadius.circular(32),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.shade400,
-                          offset: Offset(0, 5),
-                        )
-                      ]),
-                  child: Column(
-                    children: [
-                      SvgPicture.asset(Images.homeItemRight),
-                      SizedBox(height: 20),
-                      Text('Nhóm lớp', style: TextStyles.textSizeBold14),
-                    ],
-                  ),
-                ),
-                onTap: () {
-                  callBackRight!();
-                },
+            ),
+            onTap: () {
+              callBackLeft!();
+            },
+          ),
+          GestureDetector(
+            child: Container(
+              height: height*0.52,
+              width: width*0.4,
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                  color: CustomColors.tabActiveColor,
+                  borderRadius: BorderRadius.circular(32),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade400,
+                      offset: Offset(0, 5),
+                    )
+                  ]),
+              child: Column(
+                children: [
+                  SvgPicture.asset(Images.homeItemRight),
+                  SizedBox(height: 20),
+                  Text('Nhóm lớp', style: TextStyles.textSizeBold14),
+                ],
               ),
+            ),
+            onTap: () {
+              callBackRight!();
+            },
+          ),
             ],
-          )),
-          Expanded(child: SizedBox(),flex: 1)
+          ):const SizedBox(),
+          boxItem ?const Expanded(child: SizedBox(),flex: 1):SizedBox(),
         ],
       ),
     );
@@ -312,6 +317,27 @@ class Common {
         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
       ),
       child: Text(text, style: style),
+    );
+  }
+
+  Widget logoScreen() {
+    return Container(
+      constraints: BoxConstraints.expand(),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: SvgPicture.asset(Images.logoImage2),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              padding: EdgeInsets.only(bottom: 140, right: 10),
+              child: SvgPicture.asset(Images.logoImage1),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

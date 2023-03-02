@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:school_app/utilities/assets.dart';
+import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/components/common_font.dart';
 import '../../../routers/fluro_navigator.dart';
 import '../../../routers/router_generator.dart';

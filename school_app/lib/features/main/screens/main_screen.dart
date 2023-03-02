@@ -5,7 +5,7 @@ import 'package:school_app/features/home/screens/home_screen.dart';
 import 'package:school_app/features/infomation_profile//screens/information_profile_screen.dart';
 import 'package:school_app/features/main/blocs/main_bloc.dart';
 import 'package:school_app/features/school_class/screens/school_class_screen.dart';
-import 'package:school_app/utilities/assets.dart';
+import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
 

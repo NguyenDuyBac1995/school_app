@@ -9,8 +9,7 @@ class Images {
   static const homeItemLeft = 'assets/images/home_itemLeft.svg';
   static const homeItemRight = 'assets/images/home_itemRight.svg';
   static const statusImages = 'assets/images/image.png';
-  static const statusIconLike = 'assets/images/Group 1032.svg';
-  static const statusIconComment = 'assets/images/Group 1032.svg';
+  static const avatarIcon1 = 'assets/images/Ellipse 104.svg';
 }
 
 

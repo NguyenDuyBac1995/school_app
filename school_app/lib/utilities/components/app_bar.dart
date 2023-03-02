@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:school_app/utilities/assets.dart';
+import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/components/common_font.dart';
 import 'package:school_app/utilities/text_styles.dart';
@@ -15,8 +15,9 @@ PreferredSize appBarCommonV1(
     preferredSize: Size.fromHeight(50),
     child: Column(
       children: [
+        const Expanded(child: SizedBox()),
         Container(
-          padding: EdgeInsets.fromLTRB(15, 49, 20, 0),
+          padding: EdgeInsets.fromLTRB(15,0, 20, 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -35,7 +36,7 @@ PreferredSize appBarCommonV1(
                           icon: SvgPicture.asset(IconConstant.arrowDownIcon),
                           onPressed: () {},
                         ),
-                  Text(strTitle ?? '', style: TextStyles.textSize20),
+                  Text(strTitle ?? '', style: TextStyles.textSize20, overflow: TextOverflow.ellipsis ,),
                 ],
               ),
               Transform.scale(

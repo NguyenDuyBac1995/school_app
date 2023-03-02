@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school_app/data/dummy_data.dart';
 import 'package:school_app/utilities/components/app_bar.dart';
 import 'package:school_app/utilities/components/common_font.dart';
 import 'package:school_app/utilities/status_comment_fonts/status.dart';
@@ -28,9 +29,9 @@ class _SchoolClassScreen extends State<SchoolClassScreen> {
                 children: [
                   Expanded(
                     child: ListView.builder(
-                      itemCount: 3,
+                      itemCount: dummyData.length,
                       itemBuilder: (BuildContext context, index) {
-                        return SchoolClassStatus();
+                        return StatusStyles(data: dummyData[index]);
                       },
                     ),
                   ),

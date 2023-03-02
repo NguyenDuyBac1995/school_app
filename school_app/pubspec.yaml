@@ -70,10 +70,6 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    - assets/images/icon1.svg
-    - assets/images/icon2.svg
-    - assets/images/icon3.svg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -6,7 +6,7 @@ import 'package:school_app/routers/router_generator.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/components/common_font.dart';
 
-import '../../../utilities/assets.dart';
+import '../../../utilities/assets_common.dart';
 import '../../../utilities/text_styles.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -58,12 +58,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Common().textFieldLogin(
+                        Common().loginTextField(
                           textStyle: TextStyles.textSize16,
                             controller: _textUserController,
                             hintvalue: 'Số điện thoại'),
                         SizedBox(height: 15),
-                        Common().textFieldLogin(
+                        Common().loginTextField(
                             textStyle: TextStyles.textSize16,
                             controller: _textPasswordController,
                             obscureText: true,
@@ -73,7 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         Common().buttonCommon(
                             textIcon: Text('Đăng nhập', style: TextStyles.textNotoSize14,),
                           callBack: (){
-
                               NavigatorUtils.push(context, RouterGenerator.routeMainScreen);
                           }
                         )
