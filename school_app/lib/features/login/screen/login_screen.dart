@@ -37,18 +37,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Container(
-                            height: MediaQuery.of(context).size.height*0.31,
-                            width: MediaQuery.of(context).size.width*0.62,
-                            child: SvgPicture.asset(
-                              Images.splashImage,
-                              fit: BoxFit.cover,
-                              alignment: Alignment.center,
+                          Expanded(flex: 2,child: SizedBox()),
+                           Container(
+                             height: MediaQuery.of(context).size.width*0.6,
+                              width: MediaQuery.of(context).size.width*0.6,
+                              child: SvgPicture.asset(
+                                Images.splashImage,
+                                fit: BoxFit.cover,
+                                alignment: Alignment.center,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 35),
+                          Expanded(child: SizedBox()),
                           Text(
-                            "Đăng Nhập", style: TextStyles.textSize34,
+                            "Đăng Nhập", style: TextStyles.textInterBold(34),
                           ),
                           SizedBox(height: 26),
                         ],
@@ -59,19 +60,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Common().loginTextField(
-                          textStyle: TextStyles.textSize16,
+                          textStyle: TextStyles.textInterMedium(16),
                             controller: _textUserController,
                             hintvalue: 'Số điện thoại'),
                         SizedBox(height: 15),
                         Common().loginTextField(
-                            textStyle: TextStyles.textSize16,
+                            textStyle: TextStyles.textInterMedium(16),
                             controller: _textPasswordController,
                             obscureText: true,
                             suffixIcons: true,
                             hintvalue: 'Mật khẩu'),
                         SizedBox(height: 30),
                         Common().buttonCommon(
-                            textIcon: Text('Đăng nhập', style: TextStyles.textNotoSize14,),
+                            textIcon: Text('Đăng nhập', style: TextStyles.textNotoSanMedium(14)),
                           callBack: (){
                               NavigatorUtils.push(context, RouterGenerator.routeMainScreen);
                           }

@@ -25,4 +25,5 @@ class IconConstant {
   static const commentIcon = 'assets/icons/comment_icon.svg';
   static const likeIcon = 'assets/icons/like_icon.svg';
   static const makeIcon = 'assets/icons/makeIcon.svg';
+  static const circleActionIcon = 'assets/icons/circle_actions_icon.svg';
 }

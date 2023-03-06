@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:school_app/data/dummy_data.dart';
 import 'package:school_app/utilities/common.dart';
-import 'package:school_app/utilities/status_comment_fonts/bottom_sheet_comment.dart';
+import 'package:school_app/utilities/posts_comment/comment.dart';
 
 import '../assets_common.dart';
 import '../colors.dart';
 import '../string.dart';
 import '../text_styles.dart';
 
-class StatusStyles extends StatelessWidget {
-  const StatusStyles({Key? key, this.data}) : super(key: key);
+class PostsStyles extends StatelessWidget {
+  const PostsStyles({Key? key, this.data}) : super(key: key);
   final Student? data;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class StatusStyles extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
+                        CircleAvatar(
                           child: SvgPicture.asset(data!.avata),
                           radius: 26),
                       SizedBox(width: 10),
@@ -40,12 +40,12 @@ class StatusStyles extends StatelessWidget {
                         children: [
                           Text(
                             '${data!.name}',
-                            style: TextStyles.textNotoSizeBold16,
+                            style: TextStyles.textNotoSanBold(16),
                           ),
                           SizedBox(height: 3),
                           Text(
                             '18:01 19/8/2020',
-                            style: TextStyles.textNotoSize14,
+                            style: TextStyles.textNotoSanMedium(14),
                           ),
                           SizedBox(height: 6)
                         ],
@@ -53,7 +53,7 @@ class StatusStyles extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 10),
-                  Text(Strings.STATUS, style: TextStyles.textNotoSize16),
+                  Text(Strings.STATUS, style: TextStyles.textNotoSanMedium(16)),
                 ],
               ),
             ),
@@ -76,7 +76,7 @@ class StatusStyles extends StatelessWidget {
                       CustomIcon(IconConstant.likeIcon,size: 30),
                       Text(
                         '125',
-                        style: TextStyles.textNotoSize14,
+                        style: TextStyles.textNotoSanMedium(14),
                       )
                     ],
                   ),
@@ -85,14 +85,14 @@ class StatusStyles extends StatelessWidget {
                       CustomIcon(IconConstant.statusHeathIcon,size: 30),
                       Text(
                         '12',
-                        style: TextStyles.textNotoSize14,
+                        style: TextStyles.textNotoSanMedium(14),
                       )
                     ],
                   ),
                   GestureDetector(
                     child: Row(children: [
                       CustomIcon(IconConstant.commentIcon,size: 30),
-                      Text('20', style: TextStyles.textNotoSize14,
+                      Text('20', style: TextStyles.textNotoSanMedium(14),
                       )
                     ],
                     ),

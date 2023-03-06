@@ -29,7 +29,7 @@ class _RemindScreenState extends State<RemindScreen> {
               child: Column(
                 children: [
                   Expanded(
-                      child:ListView.separated(
+                      child:ListView.builder(
                           itemBuilder: (context, index){
                             return Common().homeItemStudent(
                                 name: dummyData[index].name,
@@ -37,19 +37,13 @@ class _RemindScreenState extends State<RemindScreen> {
                                 teacherName: dummyData[index].teacher,
                                 avatarAssets: dummyData[index].avata,
                                 width: MediaQuery.of(context).size.width,
-                                height: MediaQuery.of(context).size.height*0.13,
+                                height: 123,
                                 boxItem: false,
                                 callBackTop: (){
                                   var value = DataBundle(data: dummyData[index]);
                                   NavigatorUtils.push(context, RouterGenerator.routeRemindDetail,data: value);
                                 }
                             );
-                          },
-                          separatorBuilder: (context, index){
-                            return Container(
-                                height: 10,
-                                width: 150,
-                                child: SvgPicture.asset(Images.underlineItem));
                           },
                           itemCount: dummyData.length)
                   )

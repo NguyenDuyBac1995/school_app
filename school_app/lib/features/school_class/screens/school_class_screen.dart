@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/data/dummy_data.dart';
+import 'package:school_app/utilities/assets_common.dart';
+import 'package:school_app/utilities/colors.dart';
+import 'package:school_app/utilities/common.dart';
 import 'package:school_app/utilities/components/app_bar.dart';
 import 'package:school_app/utilities/components/common_font.dart';
-import 'package:school_app/utilities/status_comment_fonts/status.dart';
+import 'package:school_app/utilities/posts_comment/custom_posts.dart';
 
 class SchoolClassScreen extends StatefulWidget {
   const SchoolClassScreen({super.key});
@@ -31,7 +34,7 @@ class _SchoolClassScreen extends State<SchoolClassScreen> {
                     child: ListView.builder(
                       itemCount: dummyData.length,
                       itemBuilder: (BuildContext context, index) {
-                        return StatusStyles(data: dummyData[index]);
+                        return PostsStyles(data: dummyData[index]);
                       },
                     ),
                   ),
@@ -40,6 +43,11 @@ class _SchoolClassScreen extends State<SchoolClassScreen> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: CustomColors.textColor,
+      child: CustomIcon(IconConstant.penIcon, size: 30, color: Colors.white),
+        onPressed: () {},
       ),
     );
   }

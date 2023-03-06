@@ -17,7 +17,7 @@ PreferredSize appBarCommonV1(
       children: [
         const Expanded(child: SizedBox()),
         Container(
-          padding: EdgeInsets.fromLTRB(15,0, 20, 0),
+          padding: EdgeInsets.fromLTRB(12,0, 20, 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -36,7 +36,7 @@ PreferredSize appBarCommonV1(
                           icon: SvgPicture.asset(IconConstant.arrowDownIcon),
                           onPressed: () {},
                         ),
-                  Text(strTitle ?? '', style: TextStyles.textSize20, overflow: TextOverflow.ellipsis ,),
+                  Text(strTitle ?? '', style: TextStyles.textInterBold(21), overflow: TextOverflow.ellipsis ,),
                 ],
               ),
               Transform.scale(

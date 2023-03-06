@@ -40,14 +40,17 @@ class _SplashScreenState extends State<SplashScreen> {
                   Expanded(child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      Expanded(flex: 2,child: SizedBox()),
                       Container(
-                        height: 300,
-                        width: 280,
-                        child: SvgPicture.asset(Images.splashImage,
+                        height: MediaQuery.of(context).size.width*0.6,
+                        width: MediaQuery.of(context).size.width*0.6,
+                        child: SvgPicture.asset(
+                          Images.splashImage,
                           fit: BoxFit.cover,
-                          alignment: Alignment.center,),
+                          alignment: Alignment.center,
+                        ),
                       ),
-                      SizedBox(height: 25),
+                      Expanded(child: SizedBox()),
                       Common().gradient_text('Welcome to',
                           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                           gradient: LinearGradient(
