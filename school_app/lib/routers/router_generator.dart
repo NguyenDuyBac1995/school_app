@@ -8,7 +8,7 @@ import 'package:school_app/features/remind/screens/remind_screen.dart';
 import 'package:school_app/features/splash/screens/splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import '../core/models/data_bundle.dart';
-import '../features/infomation_profile/screens/student_information_screen.dart';
+import '../features/student_profile/student_information_screen.dart';
 import '../features/remind/screens/create_new_remind_screen.dart';
 import '404.dart';
 

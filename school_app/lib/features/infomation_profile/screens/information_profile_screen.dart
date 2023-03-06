@@ -58,7 +58,7 @@ class _InformationProfileScreenState extends State<InformationProfileScreen> {
                               ],
                             ),
                             height: 65,
-                            color: CustomColors.textColor,
+                            colorBorder: CustomColors.textColor,
                             callBack: ()=>NavigatorUtils.push(context, RouterGenerator.routeChangeInformationProfile)
                           ),
                           SizedBox(height: 15),
@@ -71,7 +71,7 @@ class _InformationProfileScreenState extends State<InformationProfileScreen> {
                                 ],
                               ),
                               height: 65,
-                              color: CustomColors.textColor,
+                              colorBorder: CustomColors.textColor,
                             callBack: ()=>NavigatorUtils.push(context, RouterGenerator.routeChangePassword)
                           ),
                           SizedBox(height: 15),
@@ -84,7 +84,7 @@ class _InformationProfileScreenState extends State<InformationProfileScreen> {
                                 ],
                               ),
                               height: 65,
-                              color: CustomColors.textColor,
+                              colorBorder: CustomColors.textColor,
                             callBack: ()=>Navigator.pop(context),
                           )
                         ],

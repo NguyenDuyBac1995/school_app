@@ -139,7 +139,7 @@ class Common {
         callback!();
       },
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+        contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 18),
         filled: true,
         fillColor: Colors.white,
           hintText: hintValue,
@@ -361,18 +361,18 @@ class Common {
   Widget buttonCommon({
     Widget? textIcon,
     VoidCallback? callBack,
-    bool colors = true,
+    Color colors = CustomColors.tabActiveColor,
     double height = 50,
-    Color color = Colors.transparent,
+    Color colorBorder = Colors.transparent,
     double border = 15
   }) {
     return GestureDetector(
       child: Container(
         height: height,
         decoration: BoxDecoration(
-            color:colors?CustomColors.tabActiveColor:CustomColors.pinkColor,
+            color: colors,
             borderRadius: BorderRadius.circular(border),
-          border: Border.all(color: color, width: 0.8)
+          border: Border.all(color: colorBorder, width: 0.8)
         ),
         child: Center(
           child: textIcon,
@@ -401,16 +401,17 @@ class Common {
   Widget logoScreen() {
     return Container(
       constraints: BoxConstraints.expand(),
-      child: Stack(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Align(
-            alignment: Alignment.bottomLeft,
+         Align(
+           alignment: Alignment.bottomLeft,
             child: SvgPicture.asset(Images.logoImage2),
           ),
           Align(
             alignment: Alignment.centerRight,
             child: Container(
-              padding: EdgeInsets.only(bottom: 140, right: 10),
+              padding: EdgeInsets.only(bottom: 140,right: 10),
               child: SvgPicture.asset(Images.logoImage1),
             ),
           )
