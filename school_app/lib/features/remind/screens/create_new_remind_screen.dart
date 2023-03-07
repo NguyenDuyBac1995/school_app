@@ -115,7 +115,7 @@ class _CreateNewRemindScreenState extends State<CreateNewRemindScreen> {
                         style: TextStyles.textNotoSanMedium(16)
                             .copyWith(color: Colors.white),
                       ),
-                      colors: CustomColors.pinkColor,
+                      colors: false,
                       callBack: () {
                         Navigator.pop(context);
                       }),
@@ -131,7 +131,6 @@ class _CreateNewRemindScreenState extends State<CreateNewRemindScreen> {
   Future pickDate(BuildContext context) async {
     final initialDate = DateTime.now();
     final newDate = await showDatePicker(
-      initialDatePickerMode: DatePickerMode.day,
         context: context,
         initialDate: date ?? initialDate,
         firstDate: DateTime(initialDate.year - 5),
