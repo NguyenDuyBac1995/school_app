@@ -43,10 +43,11 @@ dependencies:
   page_transition: ^2.0.9
   google_fonts: ^4.0.3
   logger: ^1.2.2
-  table_calendar: ^3.0.9
-  intl: ^0.18.0
+  table_calendar: ^3.0.7
+  intl: ^0.17.0
   fluttertoast: ^8.2.1
   flutter_datetime_picker: ^1.5.1
+  flutter_month_picker: ^0.0.2
 
 
 dev_dependencies:

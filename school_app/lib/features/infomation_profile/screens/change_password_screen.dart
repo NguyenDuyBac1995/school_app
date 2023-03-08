@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/utilities/colors.dart';
-import 'package:school_app/utilities/components/common_font.dart';
+import 'package:school_app/widgets/common_widget.dart';
 
-import '../../../utilities/components/app_bar.dart';
+import '../../../widgets/appbar/app_bar.dart';
 import '../../../utilities/text_styles.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
@@ -36,14 +36,14 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            color: CustomColors.mainTabColor,
+                            color: CustomColors.greenColor,
                           ),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Common().commentTextField(
                                 controller: _textPassword,
-                                colorBorder: CustomColors.textColor,
+                                colorBorder: CustomColors.purpleColor,
                                 validation: true,
                                 validationErrorMsg: 'Hãy nhập đầy đủ thông tin',
                                 hintValue: 'Mật khẩu hiện tại',
@@ -52,7 +52,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                               SizedBox(height: 15),
                               Common().commentTextField(
                                 controller: _textChangePassword,
-                                colorBorder: CustomColors.textColor,
+                                colorBorder: CustomColors.purpleColor,
                                 validation: true,
                                 validationErrorMsg: 'Hãy nhập đầy đủ thông tin',
                                 hintValue: 'Mật khẩu mới',
@@ -61,7 +61,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                               SizedBox(height: 15),
                               Common().commentTextField(
                                 controller: _textDefinePassword,
-                                colorBorder: CustomColors.textColor,
+                                colorBorder: CustomColors.purpleColor,
                                 validation: true,
                                 validationErrorMsg: 'Hãy nhập đầy đủ thông tin',
                                 hintValue: 'Xác nhận mật khẩu',

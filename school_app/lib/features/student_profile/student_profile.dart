@@ -4,12 +4,12 @@ import 'package:school_app/data/dummy_data.dart';
 import '../../utilities/assets_common.dart';
 import '../../utilities/colors.dart';
 import '../../utilities/common.dart';
-import '../../utilities/components/common_font.dart';
+import '../../widgets/common_widget.dart';
 import '../../utilities/text_styles.dart';
 
 class StudentProfile extends StatefulWidget {
-  const StudentProfile({Key? key}) : super(key: key);
-
+  const StudentProfile({Key? key , required this.dataStudent}) : super(key: key);
+ final Student dataStudent;
   @override
   State<StudentProfile> createState() => _StudentProfileState();
 }
@@ -26,11 +26,11 @@ class _StudentProfileState extends State<StudentProfile> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _nameController.text = dummyData[0].name;
-    _dateController.text = dummyData[0].date;
-    _schoolController.text = dummyData[0].school;
-    _classController.text = dummyData[0].class_studen;
-    _parentController.text = dummyData[0].parent;
+    _nameController.text = widget.dataStudent.name;
+    _dateController.text = widget.dataStudent.date;
+    _schoolController.text = widget.dataStudent.school;
+    _classController.text = widget.dataStudent.class_studen;
+    _parentController.text = widget.dataStudent.parent;
   }
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _StudentProfileState extends State<StudentProfile> {
             padding: EdgeInsets.fromLTRB(15, 30, 15, 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: CustomColors.mainTabColor,
+              color: CustomColors.greenColor,
             ),
             child: Form(
               key: _fromKey,
@@ -74,7 +74,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                 controller: _nameController,
                                 sizeBorder: 12,
                                 textStyle: TextStyles.textInterMedium(16),
-                                colorBorder: CustomColors.textColor,
+                                colorBorder: CustomColors.purpleColor,
                                 validation: true,
                                 validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
                             )
@@ -96,7 +96,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                 controller: _dateController,
                                 sizeBorder: 12,
                                 textStyle: TextStyles.textInterMedium(16),
-                                colorBorder: CustomColors.textColor,
+                                colorBorder: CustomColors.purpleColor,
                                 validation: true,
                                 validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
                             )
@@ -118,7 +118,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                 controller: _schoolController,
                                 sizeBorder: 12,
                                 textStyle: TextStyles.textInterMedium(16),
-                                colorBorder: CustomColors.textColor,
+                                colorBorder: CustomColors.purpleColor,
                                 validation: true,
                                 validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
                             )
@@ -140,7 +140,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                 controller: _classController,
                                 sizeBorder: 12,
                                 textStyle: TextStyles.textInterMedium(16),
-                                colorBorder: CustomColors.textColor,
+                                colorBorder: CustomColors.purpleColor,
                                 validation: true,
                                 validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
                             )
@@ -162,7 +162,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                 controller: _parentController,
                                 sizeBorder: 12,
                                 textStyle: TextStyles.textInterMedium(16),
-                                colorBorder: CustomColors.textColor,
+                                colorBorder: CustomColors.purpleColor,
                                 validation: true,
                                 validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
                             )

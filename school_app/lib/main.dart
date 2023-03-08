@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:school_app/features/login/blocs/login_bloc.dart';
 import 'package:school_app/features/main/blocs/main_bloc.dart';
 import 'package:school_app/routers/router_generator.dart';
 
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(create: (context) => MainBloc())
+      BlocProvider(create: (context) => MainBloc()),
+      BlocProvider(create: (context) => LoginBloc()),
     ], child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',

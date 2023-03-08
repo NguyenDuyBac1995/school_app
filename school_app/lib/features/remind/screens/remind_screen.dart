@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:school_app/routers/fluro_navigator.dart';
 import 'package:school_app/routers/router_generator.dart';
-import 'package:school_app/utilities/components/app_bar.dart';
-import 'package:school_app/utilities/components/common_font.dart';
+import 'package:school_app/utilities/colors.dart';
+import 'package:school_app/widgets/appbar/app_bar.dart';
+import 'package:school_app/widgets/common_widget.dart';
 
 import '../../../core/models/data_bundle.dart';
 import '../../../utilities/assets_common.dart';
@@ -31,21 +32,32 @@ class _RemindScreenState extends State<RemindScreen> {
                   Expanded(
                       child:ListView.builder(
                           itemBuilder: (context, index){
-                            return Common().homeItemStudent(
-                                name: dummyData[index].name,
-                                className: dummyData[index].class_studen,
-                                teacherName: dummyData[index].teacher,
-                                avatarAssets: dummyData[index].avata,
-                                width: MediaQuery.of(context).size.width,
-                                height: 123,
-                                boxItem: false,
-                                callBackTop: (){
-                                  var value = DataBundle(data: dummyData[index]);
-                                  NavigatorUtils.push(context, RouterGenerator.routeRemindDetail,data: value);
-                                }
+                            return Container(
+                              height: 120,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Common().homeItemStudent(
+                                  name: dummyData[index].name,
+                                  className: dummyData[index].class_studen,
+                                  teacherName: dummyData[index].teacher,
+                                  avatarAssets: dummyData[index].avata,
+                                  width: MediaQuery.of(context).size.width,
+                                  callBack: (){
+                                    var value = DataBundle(data: dummyData[index]);
+                                    NavigatorUtils.push(context, RouterGenerator.routeRemindDetail,data: value);
+                                  }
+                              ),
+                              Common().underLine(
+                                  width: MediaQuery.of(context).size.width*0.4,
+                                  color: CustomColors.purpleColor
+                              )
+                                ]
+                              ),
                             );
                           },
-                          itemCount: dummyData.length)
+                          itemCount: dummyData.length,
+                      )
                   )
                 ],
               ),

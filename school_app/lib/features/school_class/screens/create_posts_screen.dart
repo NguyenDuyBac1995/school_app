@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:school_app/utilities/components/app_bar.dart';
-import 'package:school_app/utilities/components/common_font.dart';
+import 'package:school_app/widgets/appbar/app_bar.dart';
+import 'package:school_app/widgets/common_widget.dart';
 
 class CreatePostsScreen extends StatefulWidget {
   const CreatePostsScreen({Key? key}) : super(key: key);

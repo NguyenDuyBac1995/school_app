@@ -3,8 +3,8 @@ import 'package:school_app/data/dummy_data.dart';
 import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
-import 'package:school_app/utilities/components/app_bar.dart';
-import 'package:school_app/utilities/components/common_font.dart';
+import 'package:school_app/widgets/appbar/app_bar.dart';
+import 'package:school_app/widgets/common_widget.dart';
 
 import '../../../utilities/text_styles.dart';
 
@@ -47,7 +47,7 @@ class _ChangeInformationScreenState extends State<ChangeInformationScreen> {
                   padding: EdgeInsets.fromLTRB(15, 30, 15, 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: CustomColors.mainTabColor,
+                    color: CustomColors.greenColor,
                   ),
                   child: Form(
                     key: _fromKey,
@@ -78,7 +78,7 @@ class _ChangeInformationScreenState extends State<ChangeInformationScreen> {
                                       controller: _nameController,
                                       sizeBorder: 12,
                                       textStyle: TextStyles.textInterMedium(16),
-                                      colorBorder: CustomColors.textColor,
+                                      colorBorder: CustomColors.purpleColor,
                                       validation: true,
                                       validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
                                   )
@@ -100,7 +100,7 @@ class _ChangeInformationScreenState extends State<ChangeInformationScreen> {
                                       controller: _dateController,
                                       sizeBorder: 12,
                                       textStyle: TextStyles.textInterMedium(16),
-                                      colorBorder: CustomColors.textColor,
+                                      colorBorder: CustomColors.purpleColor,
                                       validation: true,
                                       validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
                                   )
@@ -122,7 +122,7 @@ class _ChangeInformationScreenState extends State<ChangeInformationScreen> {
                                       controller: _genderController,
                                       sizeBorder: 12,
                                       textStyle: TextStyles.textInterMedium(16),
-                                      colorBorder: CustomColors.textColor,
+                                      colorBorder: CustomColors.purpleColor,
                                       validation: true,
                                       validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
                                   )
@@ -144,7 +144,7 @@ class _ChangeInformationScreenState extends State<ChangeInformationScreen> {
                                       controller: _numberPhoneController,
                                       sizeBorder: 12,
                                       textStyle: TextStyles.textInterMedium(16),
-                                      colorBorder: CustomColors.textColor,
+                                      colorBorder: CustomColors.purpleColor,
                                       validation: true,
                                       validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
                                   )

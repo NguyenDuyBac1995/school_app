@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:school_app/data/dummy_data.dart';
 import 'package:school_app/utilities/common.dart';
-import 'package:school_app/utilities/posts_comment/comment.dart';
 
-import '../assets_common.dart';
-import '../colors.dart';
-import '../string.dart';
-import '../text_styles.dart';
+import '../../utilities/assets_common.dart';
+import '../../utilities/colors.dart';
+import '../../utilities/string.dart';
+import '../../utilities/text_styles.dart';
+import 'comment.dart';
 
 class PostsStyles extends StatelessWidget {
   const PostsStyles({Key? key, this.data}) : super(key: key);
@@ -17,7 +17,7 @@ class PostsStyles extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 17),
       decoration: BoxDecoration(
-          color: CustomColors.mainTabColor,
+          color: CustomColors.greenColor,
           borderRadius: BorderRadius.circular(15)),
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 13),
@@ -63,7 +63,7 @@ class PostsStyles extends StatelessWidget {
             Container(
               height: 2,
               width: MediaQuery.of(context).size.width * 0.88,
-              color: CustomColors.textColor,
+              color: CustomColors.purpleColor,
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.88,

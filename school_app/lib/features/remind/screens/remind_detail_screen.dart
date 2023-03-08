@@ -7,8 +7,8 @@ import 'package:school_app/routers/fluro_navigator.dart';
 import 'package:school_app/routers/router_generator.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
-import 'package:school_app/utilities/components/app_bar.dart';
-import 'package:school_app/utilities/components/common_font.dart';
+import 'package:school_app/widgets/appbar/app_bar.dart';
+import 'package:school_app/widgets/common_widget.dart';
 import 'package:school_app/data/dummy_data.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -130,7 +130,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                   margin: EdgeInsets.only(top: 20),
                   decoration: BoxDecoration(
                       color: _calendarFormat == CalendarFormat.month
-                          ? CustomColors.tabActiveColor
+                          ? CustomColors.yellowColor
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(20)),
                   child: Column(
@@ -151,7 +151,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                         shouldFillViewport: false,
                         headerStyle: HeaderStyle(
                             decoration: BoxDecoration(
-                                color: CustomColors.tabActiveColor,
+                                color: CustomColors.yellowColor,
                                 borderRadius: BorderRadius.circular(12)),
                             formatButtonShowsNext: false,
                             titleCentered: false,
@@ -190,7 +190,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                                     'Tháng ${day.month}',
                                     style: TextStyles.textPoppinBold(24)
                                         .copyWith(
-                                            color: CustomColors.textColor),
+                                            color: CustomColors.purpleColor),
                                   ),
                                   IconButton(
                                       onPressed: () {
@@ -213,10 +213,10 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                                       icon: _calendarFormat ==
                                               CalendarFormat.month
                                           ? Icon(Icons.arrow_drop_down,
-                                              color: CustomColors.textColor,
+                                              color: CustomColors.purpleColor,
                                               size: 32)
                                           : Icon(Icons.arrow_drop_up,
-                                              color: CustomColors.textColor,
+                                              color: CustomColors.purpleColor,
                                               size: 32))
                                 ],
                               ),
@@ -226,7 +226,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                                     '${day.year}',
                                     style: TextStyles.textPoppinMedium(24)
                                         .copyWith(
-                                            color: CustomColors.textColor),
+                                            color: CustomColors.purpleColor),
                                   ),
                                   IconButton(
                                       onPressed: () {
@@ -236,10 +236,10 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                                       },
                                       icon: changeIcon
                                           ? Icon(Icons.arrow_drop_down,
-                                              color: CustomColors.textColor,
+                                              color: CustomColors.purpleColor,
                                               size: 32)
                                           : Icon(Icons.arrow_drop_up,
-                                              color: CustomColors.textColor,
+                                              color: CustomColors.purpleColor,
                                               size: 32))
                                 ],
                               )
@@ -374,7 +374,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                   margin: EdgeInsets.symmetric(vertical: 30, horizontal: 15),
                   padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   decoration: BoxDecoration(
-                      color: CustomColors.mainTabColor,
+                      color: CustomColors.greenColor,
                       borderRadius: BorderRadius.circular(13)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -386,7 +386,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                       Container(
                         margin: EdgeInsets.symmetric(vertical: 5),
                         height: 1,
-                        color: CustomColors.textColor,
+                        color: CustomColors.purpleColor,
                       ),
                       ..._listOfDayEvents(selectedCalendarDate)
                           .map((myEvent) => Column(
@@ -406,7 +406,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                                     trailing: Container(
                                       width: 60,
                                       decoration: BoxDecoration(
-                                          color: CustomColors.textColor,
+                                          color: CustomColors.purpleColor,
                                           borderRadius:
                                               BorderRadius.circular(15)),
                                       child: Padding(
@@ -424,7 +424,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                                   ),
                                   Container(
                                     height: 1,
-                                    color: CustomColors.textColor,
+                                    color: CustomColors.purpleColor,
                                   )
                                 ],
                               ))
@@ -466,7 +466,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
             }
           });
         },
-        backgroundColor: CustomColors.textColor,
+        backgroundColor: CustomColors.purpleColor,
         child: Icon(
           Icons.add,
           color: Colors.white,

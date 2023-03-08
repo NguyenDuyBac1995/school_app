@@ -4,8 +4,8 @@ import 'package:school_app/routers/fluro_navigator.dart';
 import 'package:school_app/routers/router_generator.dart';
 import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/colors.dart';
-import 'package:school_app/utilities/components/app_bar.dart';
-import 'package:school_app/utilities/components/common_font.dart';
+import 'package:school_app/widgets/appbar/app_bar.dart';
+import 'package:school_app/widgets/common_widget.dart';
 import 'package:school_app/utilities/text_styles.dart';
 
 
@@ -30,7 +30,7 @@ class _InformationProfileScreenState extends State<InformationProfileScreen> {
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   decoration: BoxDecoration(
-                    color: CustomColors.mainTabColor,
+                    color: CustomColors.greenColor,
                     borderRadius: BorderRadius.circular(14),
                   ),
                 child: Stack(
@@ -58,7 +58,7 @@ class _InformationProfileScreenState extends State<InformationProfileScreen> {
                               ],
                             ),
                             height: 65,
-                            colorBorder: CustomColors.textColor,
+                            colorBorder: CustomColors.purpleColor,
                             callBack: ()=>NavigatorUtils.push(context, RouterGenerator.routeChangeInformationProfile)
                           ),
                           SizedBox(height: 15),
@@ -71,7 +71,7 @@ class _InformationProfileScreenState extends State<InformationProfileScreen> {
                                 ],
                               ),
                               height: 65,
-                              colorBorder: CustomColors.textColor,
+                              colorBorder: CustomColors.purpleColor,
                             callBack: ()=>NavigatorUtils.push(context, RouterGenerator.routeChangePassword)
                           ),
                           SizedBox(height: 15),
@@ -84,7 +84,7 @@ class _InformationProfileScreenState extends State<InformationProfileScreen> {
                                 ],
                               ),
                               height: 65,
-                              colorBorder: CustomColors.textColor,
+                              colorBorder: CustomColors.purpleColor,
                             callBack: ()=>Navigator.pop(context),
                           )
                         ],

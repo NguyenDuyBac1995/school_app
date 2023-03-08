@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:school_app/utilities/common.dart';
-
+import 'package:school_app/utilities/custom_styles.dart';
 import '../../data/dummy_data.dart';
-import '../assets_common.dart';
-import '../colors.dart';
-import '../components/common_font.dart';
-import '../text_styles.dart';
+import '../../utilities/assets_common.dart';
+import '../../utilities/colors.dart';
+import '../../utilities/text_styles.dart';
+import '../../widgets/common_widget.dart';
 
 class BottomSheetComment extends StatefulWidget {
   const BottomSheetComment({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class _BottomSheetCommentState extends State<BottomSheetComment> {
         builder: (_,controller){
       return Container(
         decoration: BoxDecoration(
-            color: CustomColors.mainTabColor,
+            color: CustomColors.greenColor,
             borderRadius:BorderRadius.vertical(top: Radius.circular(20)) ),
         child: Stack(
           children: [
@@ -46,14 +46,14 @@ class _BottomSheetCommentState extends State<BottomSheetComment> {
                           },
                           icon: Icon(
                             Icons.close,
-                            color: CustomColors.textColor,
+                            color: CustomColors.purpleColor,
                           ))
                     ],
                   ),
                   Container(
                     padding: EdgeInsets.only(top: 20, bottom: 10),
                     height: 2,
-                    color: CustomColors.textColor,
+                    color: CustomColors.purpleColor,
                   ),
                   SizedBox(height: 10),
                   Row(
@@ -109,7 +109,7 @@ class _BottomSheetCommentState extends State<BottomSheetComment> {
               bottom: 0,
               child: Container(
                 padding: EdgeInsets.fromLTRB(10, 10, 20, 20),
-                color: CustomColors.tabActiveColor,
+                color: CustomColors.yellowColor,
                 height: 80,
                 width: MediaQuery.of(context).size.width,
                 child: Row(
@@ -118,11 +118,15 @@ class _BottomSheetCommentState extends State<BottomSheetComment> {
                         onPressed: () {},
                         icon: Icon(Icons.arrow_forward_ios)),
                     Expanded(
-                      child: Common().commentTextField(
-                        controller: _commentController,
-                        hintValue: 'Aa',
-                        suffixIcon: CustomIcon(IconConstant.makeIcon,),
-                      )
+                      child:
+                        TextFormField(
+                          controller: _commentController,
+                          decoration: CustomStyles.inputDecorationBorder(
+                            borderColor: Colors.transparent,
+                            hintText: 'Aa',
+                              suffixIcon: CustomIcon(IconConstant.makeIcon,)
+                          ),
+                        )
                     ),
                   ],
                 ),

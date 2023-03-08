@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:school_app/utilities/components/app_bar.dart';
+import 'package:school_app/widgets/appbar/app_bar.dart';
 
 class WidgetNotFound extends StatelessWidget {
   @override

@@ -50,48 +50,48 @@ class _MainScreen extends State<MainScreen> {
               icon: CustomIcon(
                 IconConstant.homeIcon,
                 color: state.selectedTab == TabsList.schoolHome.index
-                    ? CustomColors.tabActiveColor
+                    ? CustomColors.yellowColor
                     : Colors.white,
               ),
               label: 'Trang chủ',
-              backgroundColor: CustomColors.mainTabColor,
+              backgroundColor: CustomColors.greenColor,
             ),
             BottomNavigationBarItem(
               icon: CustomIcon(
                 IconConstant.groupPeopleIcon,
                 color: state.selectedTab == TabsList.schoolClass.index
-                    ? CustomColors.tabActiveColor
+                    ? CustomColors.yellowColor
                     : Colors.white,
               ),
               label: 'Lớp học',
-              backgroundColor: CustomColors.mainTabColor,
+              backgroundColor: CustomColors.greenColor,
             ),
             BottomNavigationBarItem(
               icon: CustomIcon(
                 IconConstant.feedListIcon,
                 color: state.selectedTab == TabsList.schoolRemind.index
-                    ? CustomColors.tabActiveColor
+                    ? CustomColors.yellowColor
                     : Colors.white,
               ),
               label: 'Nhắc nhở',
-              backgroundColor: CustomColors.mainTabColor,
+              backgroundColor: CustomColors.greenColor,
             ),
             BottomNavigationBarItem(
               icon: CustomIcon(
                 IconConstant.profileIcon,
                 color: state.selectedTab == TabsList.profile.index
-                    ? CustomColors.tabActiveColor
+                    ? CustomColors.yellowColor
                     : Colors.white,
               ),
               label: 'Cá nhân',
-              backgroundColor: CustomColors.mainTabColor,
+              backgroundColor: CustomColors.greenColor,
             ),
           ],
           currentIndex: state.selectedTab,
           onTap: (int i) {
             context.read<MainBloc>().add(TabChanged(selectedTab: i));
           },
-          selectedItemColor: CustomColors.tabActiveColor,
+          selectedItemColor: CustomColors.yellowColor,
           showUnselectedLabels: true);
     }));
   }

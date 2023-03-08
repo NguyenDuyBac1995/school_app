@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../assets_common.dart';
-import '../colors.dart';
-import '../text_styles.dart';
+import '../../utilities/assets_common.dart';
+import '../../utilities/colors.dart';
+import '../../utilities/text_styles.dart';
 
 Widget NotificationCommon(BuildContext context,{
   String? strContent
@@ -14,7 +14,7 @@ Widget NotificationCommon(BuildContext context,{
         Container(
           margin: EdgeInsets.fromLTRB(20, 30, 20, 40),
           decoration: BoxDecoration(
-            color: CustomColors.mainTabColor,
+            color: CustomColors.greenColor,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Stack(
@@ -27,11 +27,11 @@ Widget NotificationCommon(BuildContext context,{
                     children: const [
                       Padding(
                           padding: EdgeInsets.only(left: 60,top: 10, right: 10, bottom: 2),
-                          child: CircleAvatar(backgroundColor: CustomColors.tabActiveColor,radius: 25)),
-                      CircleAvatar(backgroundColor: CustomColors.tabActiveColor,radius: 15),
+                          child: CircleAvatar(backgroundColor: CustomColors.yellowColor,radius: 25)),
+                      CircleAvatar(backgroundColor: CustomColors.yellowColor,radius: 15),
                       Padding(
                           padding: EdgeInsets.only(left: 10,top: 8),
-                          child: CircleAvatar(backgroundColor: CustomColors.tabActiveColor,radius: 8)),
+                          child: CircleAvatar(backgroundColor: CustomColors.yellowColor,radius: 8)),
                     ],
                   ),
                 ),

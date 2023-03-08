@@ -4,8 +4,8 @@ import 'package:school_app/data/dummy_data.dart';
 import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
-import 'package:school_app/utilities/components/app_bar.dart';
-import 'package:school_app/utilities/components/common_font.dart';
+import 'package:school_app/widgets/appbar/app_bar.dart';
+import 'package:school_app/widgets/common_widget.dart';
 
 import '../../../utilities/text_styles.dart';
 
@@ -50,7 +50,7 @@ class _CreateNewRemindScreenState extends State<CreateNewRemindScreen> {
                       controller: dateController,
                       prefixIcon: Icon(
                         Icons.calendar_month_outlined,
-                        color: CustomColors.textColor,
+                        color: CustomColors.purpleColor,
                         size: 35,
                       ),suffixIcon: true,
                       callback: () => pickDate(context),
@@ -66,7 +66,7 @@ class _CreateNewRemindScreenState extends State<CreateNewRemindScreen> {
                     controller: timeController,
                     prefixIcon: Icon(
                       Icons.access_time,
-                      color: CustomColors.textColor,
+                      color: CustomColors.purpleColor,
                       size: 35,
                     ),
                     suffixIcon: true,
@@ -115,7 +115,7 @@ class _CreateNewRemindScreenState extends State<CreateNewRemindScreen> {
                         style: TextStyles.textNotoSanMedium(16)
                             .copyWith(color: Colors.white),
                       ),
-                      colors: false,
+                      colors: CustomColors.pinkColor,
                       callBack: () {
                         Navigator.pop(context);
                       }),

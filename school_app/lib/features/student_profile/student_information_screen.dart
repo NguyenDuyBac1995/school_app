@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:school_app/features/student_profile/student_dilegence.dart';
 import 'package:school_app/features/student_profile/student_profile.dart';
 import 'package:school_app/utilities/colors.dart';
-import 'package:school_app/utilities/components/common_font.dart';
+import 'package:school_app/widgets/common_widget.dart';
 import 'package:school_app/data/dummy_data.dart';
 
-import '../../utilities/components/app_bar.dart';
+import '../../widgets/appbar/app_bar.dart';
 import '../../utilities/text_styles.dart';
 
 class StudentInformationScreen extends StatefulWidget {
@@ -43,8 +43,8 @@ class _StudentInformationScreenState extends State<StudentInformationScreen> {
                             width:150,
                             margin: EdgeInsets.only(left: 15),
                             child: Common().buttonCommon(
-                                colors: _selectedIndex == index?CustomColors.tabActiveColor:CustomColors.tabActiveColor.withOpacity(0.5),
-                                colorBorder:_selectedIndex == index? CustomColors.textColor:Colors.transparent,
+                                colors: _selectedIndex == index?CustomColors.yellowColor:CustomColors.yellowColor.withOpacity(0.5),
+                                colorBorder:_selectedIndex == index? CustomColors.purpleColor:Colors.transparent,
                                 textIcon: Text(_listItem[index], style: TextStyles.textInterMedium(18),),
                                 callBack: (){
                                   setState(() {
@@ -67,7 +67,7 @@ class _StudentInformationScreenState extends State<StudentInformationScreen> {
                           });
                         },
                         children: [
-                          StudentProfile(),
+                          StudentProfile( dataStudent: widget.data!,),
                           StudentDilegence(),
                           Container(
                             color: Colors.orange,

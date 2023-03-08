@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/colors.dart';
-import 'package:school_app/utilities/components/common_font.dart';
+import 'package:school_app/widgets/common_widget.dart';
 import 'package:school_app/utilities/text_styles.dart';
 
 PreferredSize appBarCommonV1(
@@ -30,7 +30,7 @@ PreferredSize appBarCommonV1(
                           },
                           icon: Icon(
                             Icons.arrow_back_ios_new,
-                            color: CustomColors.textColor,
+                            color: CustomColors.purpleColor,
                           ))
                       : IconButton(
                           icon: SvgPicture.asset(IconConstant.arrowDownIcon),

@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:school_app/utilities/assets_common.dart';
-import 'package:school_app/utilities/components/common_font.dart';
+import 'package:school_app/utilities/common.dart';
+import 'package:school_app/widgets/common_widget.dart';
 import '../../../routers/fluro_navigator.dart';
 import '../../../routers/router_generator.dart';
 
@@ -51,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         ),
                       ),
                       Expanded(child: SizedBox()),
-                      Common().gradient_text('Welcome to',
+                      GradientText('Welcome to',
                           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                           gradient: LinearGradient(
                               colors: [
@@ -63,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ],
                   ),),
                   Expanded(child:
-                  Common().gradient_text('School',
+                  GradientText('School',
                       style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
                       gradient: LinearGradient(
                           colors: [

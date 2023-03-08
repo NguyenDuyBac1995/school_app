@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:flutter_month_picker/flutter_month_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:school_app/data/dummy_data.dart';
 import 'package:school_app/utilities/colors.dart';
 
-import '../../utilities/components/common_font.dart';
+import '../../widgets/common_widget.dart';
 import '../../utilities/text_styles.dart';
 
 class StudentDilegence extends StatefulWidget {
@@ -60,9 +61,16 @@ class _StudentDilegenceState extends State<StudentDilegence> {
         Common().remindTextField(
           textStyle: TextStyles.textInterMedium(17),
           controller: _textController,
-          borderColor: CustomColors.textColor,
+          borderColor: CustomColors.purpleColor,
           suffixIcon: true,
-          callback: ()=>pickDate(context),
+          callback: (){
+            showMonthPicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2018),
+                lastDate: DateTime(2025));
+          }
+          // callback: ()=>pickDate(context),
         ),
         Expanded(
             child: ListView.builder(
@@ -74,7 +82,7 @@ class _StudentDilegenceState extends State<StudentDilegence> {
                       margin: EdgeInsets.only(top: 12),
                       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 17),
                       decoration: BoxDecoration(
-                          color: _selectedIndex == index?CustomColors.pinkColor:CustomColors.mainTabColor,
+                          color: _selectedIndex == index?CustomColors.pinkColor:CustomColors.greenColor,
                           borderRadius: BorderRadius.circular(15)),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -83,25 +91,25 @@ class _StudentDilegenceState extends State<StudentDilegence> {
                         children: [
                           Text(
                             "${(lastDayOfMonth.day - index).toString().padLeft(2, '0')}/${DateFormat('MM/yyyy').format(lastDayOfMonth)}",
-                            style: TextStyles.textInterBold(18).copyWith(color: _selectedIndex == index?Colors.white:CustomColors.textColor),
+                            style: TextStyles.textInterBold(18).copyWith(color: _selectedIndex == index?Colors.white:CustomColors.purpleColor),
                           ),
                           Row(
                             children: [
                               Expanded(
                                   child: Container(
-                                      color:_selectedIndex == index?Colors.white:CustomColors.textColor, height: 1)),
+                                      color:_selectedIndex == index?Colors.white:CustomColors.purpleColor, height: 1)),
                               Container(
                                 height: 10,
                                 width: 10,
                                 decoration: BoxDecoration(
-                                    color: _selectedIndex == index?CustomColors.pinkColor:CustomColors.textColor,
+                                    color: _selectedIndex == index?CustomColors.pinkColor:CustomColors.purpleColor,
                                     shape: BoxShape.circle,
                                     border: Border.all(
                                         color: Colors.white, width: 2)),
                               ),
                               Expanded(
                                   child: Container(
-                                      color: _selectedIndex == index?Colors.white:CustomColors.textColor, height: 1)),
+                                      color: _selectedIndex == index?Colors.white:CustomColors.purpleColor, height: 1)),
                             ],
                           ),
                           _selectedIndex ==index?
