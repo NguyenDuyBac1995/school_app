@@ -34,6 +34,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
   bool changeIcon = true;
   DateTime? dateTime;
 
+
   late Map<String, List<Event>> mySelectedEvents;
 
   @override
@@ -175,6 +176,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                             setState(() {
                               print('selected : $selectedCalendarDate');
                               selectedCalendarDate = selectedDay;
+                              print('output : $selectedCalendarDate');
                               _focusedDay = focusedDay;
                             });
                           }
@@ -364,7 +366,9 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                               radius: 25,
                             ),
                           );
-                        }),
+                        },
+
+                        ),
                       ),
                       SizedBox(height: 15),
                     ],
@@ -431,7 +435,7 @@ class _RemindDetailScreenState extends State<RemindDetailScreen> {
                           .toList()
                     ],
                   ),
-                )
+                ),
               ],
             )
           ],

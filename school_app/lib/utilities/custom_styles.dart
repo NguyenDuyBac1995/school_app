@@ -17,6 +17,7 @@ class CustomStyles {
     Color fillColor = Colors.white,
     Color borderColor = CustomColors.purpleColor,
     double paddingSize = 16,
+    double hintSize =15
   }) {
     return InputDecoration(
       fillColor: fillColor,
@@ -31,7 +32,7 @@ class CustomStyles {
       prefixIcon:prefixIcon,
       hintText: hintText,
       hintStyle: TextStyle(
-          color: hintColor, fontSize: 15, wordSpacing: 1.0),
+          color: hintColor, fontSize: hintSize, wordSpacing: 1.0),
       contentPadding: EdgeInsets.symmetric(vertical: paddingSize, horizontal: 24),
       enabledBorder: OutlineInputBorder(
         borderSide:  BorderSide(

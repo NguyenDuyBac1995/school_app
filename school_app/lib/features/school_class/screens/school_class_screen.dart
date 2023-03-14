@@ -19,29 +19,26 @@ class _SchoolClassScreen extends State<SchoolClassScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
       appBar: appBarCommonV1(context,
           strTitle: 'Nguyễn Tú An - Lớp Lá',),
       body: SafeArea(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: Stack(
-            children: [
-              Common().logoScreen(),
-              Column(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: dummyData.length,
-                      itemBuilder: (BuildContext context, index) {
-                        return PostsStyles(data: dummyData[index]);
-                      },
-                    ),
+        child: SingleChildScrollView(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: dummyData.length,
+                    itemBuilder: (BuildContext context, index) {
+                      return PostsStyles(data: dummyData[index]);
+                    },
                   ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

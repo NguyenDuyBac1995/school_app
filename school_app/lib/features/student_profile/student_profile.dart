@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/data/dummy_data.dart';
+import 'package:school_app/utilities/custom_styles.dart';
 
 import '../../utilities/assets_common.dart';
 import '../../utilities/colors.dart';
@@ -32,6 +33,7 @@ class _StudentProfileState extends State<StudentProfile> {
     _classController.text = widget.dataStudent.class_studen;
     _parentController.text = widget.dataStudent.parent;
   }
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,125 +53,11 @@ class _StudentProfileState extends State<StudentProfile> {
                 children: [
                   CircleAvatar(child: CustomIcon(Images.homeItemRight, size: 80),radius: 65, backgroundColor: Colors.white,),
                   SizedBox(height: 20),
-                  // FractionallySizedBox(
-                  //   widthFactor: 0.45,
-                  //   child: Common().buttonCommon(
-                  //     height: 35,
-                  //     border: 8,
-                  //     textIcon: Text('Đổi ảnh đại diện', style: TextStyles.textInterMedium(14),),
-                  //   ),
-                  // ),
-                  // SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                          child: Text('Họ tên:', style: TextStyles.textInterMedium(18),)),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                            margin: EdgeInsets.symmetric(vertical: 8),
-                            child: Common().commentTextField(
-                                veticalSize: 12,
-                                controller: _nameController,
-                                sizeBorder: 12,
-                                textStyle: TextStyles.textInterMedium(16),
-                                colorBorder: CustomColors.purpleColor,
-                                validation: true,
-                                validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
-                            )
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                          child: Text('Ngày sinh:', style: TextStyles.textInterMedium(18),)),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                            margin: EdgeInsets.symmetric(vertical: 8),
-                            child: Common().commentTextField(
-                                veticalSize: 12,
-                                controller: _dateController,
-                                sizeBorder: 12,
-                                textStyle: TextStyles.textInterMedium(16),
-                                colorBorder: CustomColors.purpleColor,
-                                validation: true,
-                                validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
-                            )
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                          child: Text('Trường:', style: TextStyles.textInterMedium(18),)),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                            margin: EdgeInsets.symmetric(vertical: 8),
-                            child: Common().commentTextField(
-                                veticalSize: 12,
-                                controller: _schoolController,
-                                sizeBorder: 12,
-                                textStyle: TextStyles.textInterMedium(16),
-                                colorBorder: CustomColors.purpleColor,
-                                validation: true,
-                                validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
-                            )
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                          child: Text('Lớp:', style: TextStyles.textInterMedium(18),)),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                            margin: EdgeInsets.symmetric(vertical: 8),
-                            child: Common().commentTextField(
-                                veticalSize: 12,
-                                controller: _classController,
-                                sizeBorder: 12,
-                                textStyle: TextStyles.textInterMedium(16),
-                                colorBorder: CustomColors.purpleColor,
-                                validation: true,
-                                validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
-                            )
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                          child: Text('Phụ huynh:', style: TextStyles.textInterMedium(18),)),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                            margin: EdgeInsets.symmetric(vertical: 8),
-                            child: Common().commentTextField(
-                                veticalSize: 12,
-                                controller: _parentController,
-                                sizeBorder: 12,
-                                textStyle: TextStyles.textInterMedium(16),
-                                colorBorder: CustomColors.purpleColor,
-                                validation: true,
-                                validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
-                            )
-                        ),
-                      ),
-                    ],
-                  ),
+                  Common().profileItemCommon('Họ tên',_nameController ),
+                  Common().profileItemCommon('Ngày sinh:',_dateController ),
+                  Common().profileItemCommon('Trường',_schoolController ),
+                  Common().profileItemCommon('Lớp',_classController ),
+                  Common().profileItemCommon('Phụ huynh',_parentController ),
                 ],
               ),
             ),
@@ -190,7 +78,3 @@ class _StudentProfileState extends State<StudentProfile> {
     );
   }
 }
-
-class _fromKey {
-}
-

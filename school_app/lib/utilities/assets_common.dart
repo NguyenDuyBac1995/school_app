@@ -1,4 +1,5 @@
 class Images {
+  static const backgroundImage = 'assets/images/imageBackground.png';
   static const splashImage = 'assets/images/logo_splash.svg';
   static const logoImage1 = 'assets/images/logo_1.svg';
   static const logoImage2 = 'assets/images/logo_2.svg';
@@ -19,11 +20,12 @@ class IconConstant {
   static const groupPeopleIcon = 'assets/icons/group_people.svg';
   static const feedListIcon = 'assets/icons/feed_list.svg';
   static const notificationIcon = 'assets/icons/notification.svg';
-  static const arrowDownIcon = 'assets/icons/arrow_down.svg';
+  static const arrowDownIcon = 'assets/icons/arrow_down2.svg';
   static const statusHeathIcon = 'assets/icons/icon_heath.svg';
   static const penIcon = 'assets/icons/Edit.svg';
   static const commentIcon = 'assets/icons/comment_icon.svg';
   static const likeIcon = 'assets/icons/like_icon.svg';
   static const makeIcon = 'assets/icons/makeIcon.svg';
   static const circleActionIcon = 'assets/icons/circle_actions_icon.svg';
+  static const arrowIcon = 'assets/icons/arrow.svg';
 }

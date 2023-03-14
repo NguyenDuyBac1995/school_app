@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/common.dart';
+import 'package:school_app/widgets/background_container.dart';
 import 'package:school_app/widgets/common_widget.dart';
 import '../../../routers/fluro_navigator.dart';
 import '../../../routers/router_generator.dart';
@@ -28,56 +29,54 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Common().logoScreen(),
-            Container(
-              constraints: BoxConstraints.expand(),
-              child: Column(
-                children: [
-                  Expanded(child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Expanded(flex: 2,child: SizedBox()),
-                      Container(
-                        height: MediaQuery.of(context).size.width*0.6,
-                        width: MediaQuery.of(context).size.width*0.6,
-                        child: SvgPicture.asset(
-                          Images.splashImage,
-                          fit: BoxFit.cover,
-                          alignment: Alignment.center,
-                        ),
+    return MainContainer(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SafeArea(
+          child:Container(
+            constraints: BoxConstraints.expand(),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.width*0.6,
+                      width: MediaQuery.of(context).size.width*0.6,
+                      child: SvgPicture.asset(
+                        Images.splashImage,
+                        fit: BoxFit.cover,
+                        alignment: Alignment.center,
                       ),
-                      Expanded(child: SizedBox()),
-                      GradientText('Welcome to',
-                          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                          gradient: LinearGradient(
-                              colors: [
-                                Colors.redAccent.shade400,
-                                Colors.lightBlueAccent.shade200,
-                                Colors.yellowAccent,
-                              ]
-                          ))
-                    ],
-                  ),),
-                  Expanded(child:
-                  GradientText('School',
-                      style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
-                      gradient: LinearGradient(
-                          colors: [
-                            Colors.redAccent.shade400,
-                            Colors.lightBlueAccent.shade200,
-                            Colors.yellowAccent,
-                          ]
-                      ))),
-                ],
-              )
-            ),
-          ],
-        )
+                    ),
+                    SizedBox(height: 20),
+                    GradientText('Welcome to',
+                        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                        gradient: LinearGradient(
+                            colors: [
+                              Colors.redAccent.shade400,
+                              Colors.lightBlueAccent.shade200,
+                              Colors.yellowAccent,
+                            ]
+                        ))
+                  ],
+                ),
+                SizedBox(height: 15,),
+                GradientText('School',
+                    style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
+                    gradient: LinearGradient(
+                        colors: [
+                          Colors.redAccent.shade400,
+                          Colors.lightBlueAccent.shade200,
+                          Colors.yellowAccent,
+                        ]
+                    )),
+              ],
+            )
+          )
+        ),
       ),
     );
   }

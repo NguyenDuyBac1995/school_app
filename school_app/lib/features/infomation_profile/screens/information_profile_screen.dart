@@ -5,6 +5,7 @@ import 'package:school_app/routers/router_generator.dart';
 import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/widgets/appbar/app_bar.dart';
+import 'package:school_app/widgets/background_container.dart';
 import 'package:school_app/widgets/common_widget.dart';
 import 'package:school_app/utilities/text_styles.dart';
 
@@ -21,13 +22,16 @@ class _InformationProfileScreenState extends State<InformationProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: appBarCommonV1(context,strTitle: 'Thông tin cá nhân' ),
       body: SafeArea(
-        child: Stack(
-          children: [
-            Common().logoScreen(),
-            SingleChildScrollView(
-              child: Container(
+        child: SingleChildScrollView(
+      child: Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+          child: Stack(
+            children: [
+              Container(
                 margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   decoration: BoxDecoration(
                     color: CustomColors.greenColor,
@@ -93,17 +97,18 @@ class _InformationProfileScreenState extends State<InformationProfileScreen> {
                   ],
                 ),
               ),
-            ),
-            Align(
-              alignment: Alignment.topRight,
-              child: Container(
-                padding: EdgeInsets.only(right: 5, top: 10),
-                child: Transform.scale(scale: 1.15,
-                    child: SvgPicture.asset(Images.notificationIcon1)),
+              Align(
+                alignment: Alignment.topRight,
+                child: Container(
+                  padding: EdgeInsets.only(right: 5, top: 10),
+                  child: Transform.scale(scale: 1.15,
+                      child: SvgPicture.asset(Images.notificationIcon1)),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
+      ),
       ),
     );
   }

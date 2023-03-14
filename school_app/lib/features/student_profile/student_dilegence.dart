@@ -4,6 +4,7 @@ import 'package:flutter_month_picker/flutter_month_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:school_app/data/dummy_data.dart';
 import 'package:school_app/utilities/colors.dart';
+import 'package:school_app/utilities/custom_styles.dart';
 
 import '../../widgets/common_widget.dart';
 import '../../utilities/text_styles.dart';
@@ -30,27 +31,6 @@ class _StudentDilegenceState extends State<StudentDilegence> {
     super.initState();
     _textController.text = 'Tháng ${date.month} , Năm ${date.year}';
   }
-  // void handleReadOnlyInputClick(context) {
-  //   showBottomSheet(
-  //       context: context,
-  //       builder: (BuildContext context) =>
-  //           Container(
-  //             width: MediaQuery
-  //                 .of(context)
-  //                 .size
-  //                 .width,
-  //             child: YearPicker(
-  //               selectedDate: DateTime.now(),
-  //               firstDate: DateTime(2020),
-  //               lastDate: DateTime(2025),
-  //               onChanged: (val) {
-  //                 print(val);
-  //                 Navigator.pop(context);
-  //               },
-  //             ),
-  //           )
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -58,20 +38,19 @@ class _StudentDilegenceState extends State<StudentDilegence> {
       constraints: BoxConstraints.expand(),
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(children: [
-        Common().remindTextField(
-          textStyle: TextStyles.textInterMedium(17),
-          controller: _textController,
-          borderColor: CustomColors.purpleColor,
-          suffixIcon: true,
-          callback: (){
-            showMonthPicker(
-                context: context,
-                initialDate: DateTime.now(),
-                firstDate: DateTime(2018),
-                lastDate: DateTime(2025));
-          }
-          // callback: ()=>pickDate(context),
+        Padding(
+          padding: EdgeInsets.only(bottom: 10),
+          child: TextFormField(
+            style: TextStyles.textInterMedium(17),
+            controller: _textController,
+            decoration: CustomStyles.inputDecorationBorder(
+              borderColor: CustomColors.purpleColor,
+              suffixIcon: Icon(Icons.keyboard_arrow_down, size: 50,color: CustomColors.purpleColor,),
+            ),
+            onTap: ()=>pickDate(context),
+          ),
         ),
+
         Expanded(
             child: ListView.builder(
                 itemCount: lastDayOfMonth.day,
@@ -130,13 +109,6 @@ class _StudentDilegenceState extends State<StudentDilegence> {
                               )
                             ],
                           )
-                          //     () {
-                          //   final currentDate =
-                          //   lastDayOfMonth.add(Duration(days: index + 1));
-                          //   final dateName =
-                          //   DateFormat('E').format(currentDate);
-                          //   return Text(dateName);
-                          // }()
                         ],
                       ),
                     ),

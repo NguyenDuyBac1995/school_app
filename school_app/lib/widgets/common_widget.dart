@@ -7,158 +7,76 @@ import 'package:school_app/utilities/common.dart';
 import 'package:school_app/utilities/text_styles.dart';
 
 import '../utilities/assets_common.dart';
+import '../utilities/custom_styles.dart';
 
 class Common {
-
-  TextFormField commentTextField({
-    String? hintValue,
-    TextEditingController? controller,
-    Widget? suffixIcon,
-    bool? validation,
-    TextStyle? textStyle,
-    String? validationErrorMsg,
-    Color colorBorder = Colors.white,
-    double sizeBorder = 16,
-    TextStyle? hintStyle ,
-    double veticalSize = 18
-  }) {
-    return TextFormField(
-      validator: (String? value) {
-      if (validation!) {
-        if (value!.isEmpty) {
-          return validationErrorMsg;
-        }
-      }
-    },
-      style: textStyle,
-      controller: controller,
-      decoration: InputDecoration(
-        errorStyle: TextStyle(color: Colors.indigoAccent, fontSize: 15),
-        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: veticalSize),
-        hintText: hintValue??'Aa',
-        hintStyle: hintStyle,
-        filled: true,
-        fillColor: Colors.white,
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(sizeBorder),
-            borderSide: BorderSide(color: colorBorder)),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(sizeBorder),
-            borderSide: BorderSide(color: colorBorder)),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(sizeBorder),
-            borderSide: BorderSide(color: colorBorder)),
-        suffixIcon: suffixIcon,
-      ),
-    );
-  }
-
-  TextFormField remindTextField({
-    String? hintValue,
-    TextEditingController? controller,
-    int? maxLines,
-    TextStyle? textStyle,
-    bool? validation,
-    String? validationError,
-    VoidCallback? callback,
-    Widget? prefixIcon,
-    bool suffixIcon = false,
-    Color borderColor = CustomColors.greenColor,
-    double hintSize = 16,
-  }) {
-    return TextFormField(
-      controller: controller,
-      style: textStyle,
-      maxLines: maxLines,
-      validator: (String? value) {
-        if (validation!) {
-          if (value!.isEmpty) {
-            validationError;
-          }
-        }
-      },
-      onTap: (){
-        callback!();
-      },
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 18),
-        filled: true,
-        fillColor: Colors.white,
-          hintText: hintValue,
-          hintStyle: TextStyles.textInterMedium(hintSize)
-              .copyWith(color: CustomColors.purpleColor.withOpacity(0.5)),
-          prefixIcon: prefixIcon,
-          suffixIcon: suffixIcon?Icon(Icons.keyboard_arrow_down, size: 50,color: CustomColors.purpleColor,):SizedBox(),
-        enabledBorder:OutlineInputBorder(
-          borderRadius: BorderRadius.circular(13),
-      borderSide: BorderSide(color: borderColor, width: 1),
-    ),
-       focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(13),
-          borderSide: BorderSide(color:  borderColor, width: 1),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(13),
-          borderSide: BorderSide(color:  borderColor, width: 1),
-        ),
-      ),
-    );
-  }
-
   Widget homeItemStudent({
     String? name,
     String? className,
     String? teacherName,
     String? avatarAssets,
-    required double width,
-    VoidCallback? callBack,
+    Widget? suffixIcon,
+    bool subTitle = true,
+    String? text ,
   }) {
     return
-        Container(
-          height: 70,
-          width: width,
-          child: GestureDetector(
-            onTap: () {
-              callBack!();
-            },
-            child: Row(
-              children: [
-                const Expanded(
-                  flex: 1,
-                  child: SizedBox(),
-                ),
-                Expanded(
-                    flex: 14,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CustomIcon(avatarAssets!, size: 58),
-                        SizedBox(width: 20),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              name ?? '',
-                              style: TextStyles.textInterBold(16),
-                            ),
-                            SizedBox(height: 12),
-                            Text(
-                              className ?? '',
-                              style: TextStyles.textInterMedium(12),
-                            ),
-                            SizedBox(height: 4),
-                            Text(
-                              "Cô $teacherName",
-                              style: TextStyles.textInterMedium(12),
-                            )
-                          ],
-                        )
-                      ],
-                    ))
-              ],
+        ListTile(
+          leading: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 6),
+              child: CircleAvatar(child: CustomIcon(avatarAssets!, size: 50), backgroundColor: Colors.blue, radius: 30,)),
+          title: Padding(
+            padding: EdgeInsets.only(bottom: 11),
+            child: Text(
+              name ?? '',
+              style: TextStyles.textInterBold(17),
             ),
           ),
+          subtitle: subTitle?Column(
+           crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [Text(
+              className ?? '',
+              style: TextStyles.textInterMedium(14),
+            ),
+              SizedBox(height: 4),
+              Text(
+                "Cô $teacherName",
+                style: TextStyles.textInterMedium(14),
+              )
+            ],
+          ):Text(
+            text ?? '',
+            style: TextStyles.textInterMedium(14),
+          ),
+          trailing: suffixIcon,
+
+        );
+  }
+
+  Widget profileItemCommon (
+      String? strTitle,
+      TextEditingController controller,
+      ){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+            child: Text(strTitle??'', style: TextStyles.textInterMedium(18),)),
+        Expanded(
+          flex: 2,
+          child: Container(
+              margin: EdgeInsets.symmetric(vertical: 8),
+              child:TextFormField(
+                controller: controller,
+                style: TextStyles.textInterMedium(16),
+                validator: (value)=>value!.isEmpty?'Hãy nhập thông tin đầy đủ': null,
+                decoration: CustomStyles.inputDecorationBorder(
+                    borderColor: CustomColors.purpleColor,
+                    paddingSize: 12
+                ),
+              )
+          ),
+        ),
+      ],
     );
   }
 
@@ -270,11 +188,11 @@ class Common {
   }
 
 
-  Widget logoScreen() {
+  Widget logoScreen({
+    double? width
+}) {
     return Container(
-      constraints: BoxConstraints.expand(),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Stack(
         children: [
          Align(
            alignment: Alignment.bottomLeft,

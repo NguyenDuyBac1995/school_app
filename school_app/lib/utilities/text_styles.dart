@@ -44,4 +44,5 @@ class TextStyles{
           fontWeight: FontWeight.w600,
           color: color?Color(0xff14142B):Color(0xffA0A3BD)
       );
+
 }

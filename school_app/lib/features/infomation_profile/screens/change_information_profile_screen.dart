@@ -4,6 +4,7 @@ import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
 import 'package:school_app/widgets/appbar/app_bar.dart';
+import 'package:school_app/widgets/background_container.dart';
 import 'package:school_app/widgets/common_widget.dart';
 
 import '../../../utilities/text_styles.dart';
@@ -34,142 +35,57 @@ class _ChangeInformationScreenState extends State<ChangeInformationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBarCommonV1(context,strTitle: 'Thông tin cá nhân'),
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Common().logoScreen(),
-            ListView(
-              children: [
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  padding: EdgeInsets.fromLTRB(15, 30, 15, 10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: CustomColors.greenColor,
-                  ),
-                  child: Form(
-                    key: _fromKey,
-                    child: Column(
-                      children: [
-                        CircleAvatar(child: CustomIcon(Images.homeItemRight, size: 80),radius: 65, backgroundColor: Colors.white,),
-                        SizedBox(height: 20),
-                        FractionallySizedBox(
-                          widthFactor: 0.45,
-                          child: Common().buttonCommon(
-                            height: 35,
-                            border: 8,
-                            textIcon: Text('Đổi ảnh đại diện', style: TextStyles.textInterMedium(14),),
-                          ),
+    return MainContainer(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: appBarCommonV1(context,strTitle: 'Thông tin cá nhân'),
+        body: SafeArea(
+          child: ListView(
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                padding: EdgeInsets.fromLTRB(15, 30, 15, 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: CustomColors.greenColor,
+                ),
+                child: Form(
+                  key: _fromKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      CircleAvatar(child: CustomIcon(Images.homeItemRight, size: 80),radius: 65, backgroundColor: Colors.white,),
+                      SizedBox(height: 20),
+                      FractionallySizedBox(
+                        widthFactor: 0.45,
+                        child: Common().buttonCommon(
+                          height: 35,
+                          border: 8,
+                          textIcon: Text('Đổi ảnh đại diện', style: TextStyles.textInterMedium(14),),
                         ),
-                        SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                                child: Text('Họ tên:', style: TextStyles.textInterMedium(18),)),
-                            Expanded(
-                              flex: 2,
-                              child: Container(
-                                  margin: EdgeInsets.symmetric(vertical: 8),
-                                  child: Common().commentTextField(
-                                      veticalSize: 12,
-                                      controller: _nameController,
-                                      sizeBorder: 12,
-                                      textStyle: TextStyles.textInterMedium(16),
-                                      colorBorder: CustomColors.purpleColor,
-                                      validation: true,
-                                      validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
-                                  )
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                                child: Text('Ngày sinh:', style: TextStyles.textInterMedium(18),)),
-                            Expanded(
-                              flex: 2,
-                              child: Container(
-                                margin: EdgeInsets.symmetric(vertical: 8),
-                                  child: Common().commentTextField(
-                                      veticalSize: 12,
-                                      controller: _dateController,
-                                      sizeBorder: 12,
-                                      textStyle: TextStyles.textInterMedium(16),
-                                      colorBorder: CustomColors.purpleColor,
-                                      validation: true,
-                                      validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
-                                  )
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                                child: Text('Giới tính:', style: TextStyles.textInterMedium(18),)),
-                            Expanded(
-                              flex: 2,
-                              child: Container(
-                                  margin: EdgeInsets.symmetric(vertical: 8),
-                                  child: Common().commentTextField(
-                                      veticalSize: 12,
-                                      controller: _genderController,
-                                      sizeBorder: 12,
-                                      textStyle: TextStyles.textInterMedium(16),
-                                      colorBorder: CustomColors.purpleColor,
-                                      validation: true,
-                                      validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
-                                  )
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                                child: Text('SĐT:', style: TextStyles.textInterMedium(18),)),
-                            Expanded(
-                              flex: 2,
-                              child: Container(
-                                  margin: EdgeInsets.symmetric(vertical: 8),
-                                  child: Common().commentTextField(
-                                      veticalSize: 12,
-                                      controller: _numberPhoneController,
-                                      sizeBorder: 12,
-                                      textStyle: TextStyles.textInterMedium(16),
-                                      colorBorder: CustomColors.purpleColor,
-                                      validation: true,
-                                      validationErrorMsg: 'Hãy nhập thông tin đầy đủ'
-                                  )
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(height: 10),
+                      Common().profileItemCommon('Họ tên:',_nameController),
+                      Common().profileItemCommon('Ngày sinh:',_dateController),
+                      Common().profileItemCommon('Giới tính:',_genderController),
+                      Common().profileItemCommon('SĐt:',_numberPhoneController)
+                    ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Common().buttonCommon(
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Common().buttonCommon(
                     textIcon: Text('Lưu thông tin',style: TextStyles.textNotoSanMedium(18),),
                     callBack: (){
                       if(_fromKey.currentState!.validate()){
                         Common().showToastSuccess('Cập nhật thông tin thành công');
                       }
                     }
-                  ),
-                )
-              ],
-            )
-          ]
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

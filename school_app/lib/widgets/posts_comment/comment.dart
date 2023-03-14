@@ -82,9 +82,8 @@ class _BottomSheetCommentState extends State<BottomSheetComment> {
               ),
             ),
             (changeSize
-                ? Positioned(
-              bottom: 30,
-              left: 20,
+                ? Align(
+              alignment: Alignment.bottomCenter,
               child: Common().buttonCommon(
                   textIcon: Container(
                     width: MediaQuery.of(context).size.width-40,
@@ -105,8 +104,8 @@ class _BottomSheetCommentState extends State<BottomSheetComment> {
                     });
                   }),
             )
-                : Positioned(
-              bottom: 0,
+                : Align(
+              alignment: Alignment.bottomCenter,
               child: Container(
                 padding: EdgeInsets.fromLTRB(10, 10, 20, 20),
                 color: CustomColors.yellowColor,

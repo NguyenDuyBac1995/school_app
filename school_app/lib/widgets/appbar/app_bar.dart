@@ -9,7 +9,6 @@ PreferredSize appBarCommonV1(
   BuildContext context, {
   String? strTitle,
   bool icon = true,
-  bool backgroundColor = false,
 }) {
   return PreferredSize(
     preferredSize: Size.fromHeight(50),
@@ -17,28 +16,24 @@ PreferredSize appBarCommonV1(
       children: [
         const Expanded(child: SizedBox()),
         Container(
+          width: double.infinity,
           padding: EdgeInsets.fromLTRB(12,0, 20, 0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  icon
-                      ? IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: Icon(
-                            Icons.arrow_back_ios_new,
-                            color: CustomColors.purpleColor,
-                          ))
-                      : IconButton(
-                          icon: SvgPicture.asset(IconConstant.arrowDownIcon),
-                          onPressed: () {},
-                        ),
-                  Text(strTitle ?? '', style: TextStyles.textInterBold(21), overflow: TextOverflow.ellipsis ,),
-                ],
-              ),
+              icon
+                  ? IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: CustomColors.purpleColor,
+                      ))
+                  : IconButton(
+                      icon: SvgPicture.asset(IconConstant.arrowDownIcon),
+                      onPressed: () {},
+                    ),
+              Expanded(child: Text(strTitle ?? '', style: TextStyles.textInterBold(21), overflow: TextOverflow.ellipsis)),
               Transform.scale(
                   scale: 1.2,
                   child: SvgPicture.asset(IconConstant.notificationIcon))

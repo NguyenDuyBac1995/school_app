@@ -8,6 +8,7 @@ import 'package:school_app/features/school_class/screens/school_class_screen.dar
 import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
+import 'package:school_app/widgets/background_container.dart';
 
 import '../../remind/screens/remind_screen.dart';
 
@@ -36,9 +37,12 @@ class _MainScreen extends State<MainScreen> {
     _listScreen.add(const InformationProfileScreen());
 
     return BlocBuilder<MainBloc, MainState>(builder: ((context,state) {
-      return Scaffold(
-          body: _listScreen[state.selectedTab],
-          bottomNavigationBar: _bottomNavigationBar);
+      return MainContainer(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+            body: _listScreen[state.selectedTab],
+            bottomNavigationBar: _bottomNavigationBar),
+      );
     }));
   }
 
