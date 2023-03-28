@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:school_app/data/dummy_data.dart';
+import 'package:school_app/core/models/student_model.dart';
 import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
 import 'package:school_app/utilities/custom_styles.dart';
 import 'package:school_app/widgets/appbar/app_bar.dart';
 import 'package:school_app/widgets/common_widget.dart';
-
 import '../../../utilities/text_styles.dart';
 
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 class CreateNewRemindScreen extends StatefulWidget {
   const CreateNewRemindScreen({Key? key, this.data}) : super(key: key);
-  final Student? data;
+  final StudentModel? data;
 
   @override
   State<CreateNewRemindScreen> createState() => _CreateNewRemindScreenState();
@@ -33,23 +30,23 @@ class _CreateNewRemindScreenState extends State<CreateNewRemindScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: appBarCommonV1(context,
-          strTitle: '${widget.data!.name} - ${widget.data!.class_studen}'),
+          strTitle: '${widget.data!.name} - ${widget.data!.className}',callback: (){Navigator.pop(context);}),
       body: SafeArea(
         child: Stack(children: [
           Common().logoScreen(),
           Container(
-            constraints: BoxConstraints.expand(),
-            padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+            constraints: const BoxConstraints.expand(),
+            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
             child: ListView(
               children: [
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   child: TextFormField(
                     style: TextStyles.textInterMedium(18),
                     controller: dateController,
                     decoration: CustomStyles.inputDecorationBorder(
-                      prefixIcon: Icon(Icons.calendar_month_outlined,color: CustomColors.purpleColor,size: 35,),
-                      suffixIcon: Icon(Icons.keyboard_arrow_down, size: 50,color: CustomColors.purpleColor,),
+                      prefixIcon: const Icon(Icons.calendar_month_outlined,color: CustomColors.purpleColor,size: 35,),
+                      suffixIcon: const Icon(Icons.keyboard_arrow_down, size: 50,color: CustomColors.purpleColor,),
                       borderColor: CustomColors.greenColor,
                       hintText: 'Chọn ngày'
                     ),
@@ -57,13 +54,13 @@ class _CreateNewRemindScreenState extends State<CreateNewRemindScreen> {
                   )
                 ),
                 Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
+                    margin: const EdgeInsets.symmetric(vertical: 10),
                     child: TextFormField(
                       style: TextStyles.textInterMedium(18),
                       controller: timeController,
                       decoration: CustomStyles.inputDecorationBorder(
-                          prefixIcon: Icon(Icons.access_time,color: CustomColors.purpleColor,size: 35,),
-                          suffixIcon: Icon(Icons.keyboard_arrow_down, size: 50,color: CustomColors.purpleColor,),
+                          prefixIcon: const Icon(Icons.access_time,color: CustomColors.purpleColor,size: 35,),
+                          suffixIcon: const Icon(Icons.keyboard_arrow_down, size: 50,color: CustomColors.purpleColor,),
                           borderColor: CustomColors.greenColor,
                           hintText: 'Chọn giờ'
                       ),
@@ -72,7 +69,7 @@ class _CreateNewRemindScreenState extends State<CreateNewRemindScreen> {
                 ),
                 Container(
                     height: 170,
-                    margin: EdgeInsets.symmetric(vertical: 10),
+                    margin: const EdgeInsets.symmetric(vertical: 10),
                     child: TextFormField(
                       style: TextStyles.textInterMedium(16),
                       controller: textController,
@@ -85,13 +82,13 @@ class _CreateNewRemindScreenState extends State<CreateNewRemindScreen> {
                           alignment: Alignment.topCenter,
                           child: Transform.scale(
                               scale: 1.8,
-                              child: CustomIcon(IconConstant.penIcon)),
+                              child: const CustomIcon(IconConstant.penIcon)),
                         ),
                         borderColor: CustomColors.greenColor,
                       ),
                     ),),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   child: Common().buttonCommon(
                       textIcon: Text(
                         'Tạo nhắc nhở',
@@ -108,7 +105,7 @@ class _CreateNewRemindScreenState extends State<CreateNewRemindScreen> {
                       }),
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   child: Common().buttonCommon(
                       textIcon: Text(
                         'Huỷ',

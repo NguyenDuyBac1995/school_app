@@ -1,28 +1,51 @@
-part of'login_bloc.dart';
+part of 'login_bloc.dart';
 
 @immutable
-class LoginState extends Equatable{
+class LoginState extends Equatable {
   const LoginState({
-    this.password = '',
-    this.username = '',
+    this.usernameError,
+    this.passwordError,
+    this.listStudent,
+    this.listTeacher,
+    this.selectedRoad,
     this.passwordVisible = false,
-});
-  final String username;
-  final String password;
+    this.loading = true,
+    this.error,
+  });
+
+  final List<StudentModel>? listStudent;
+  final List<TeacherModel>? listTeacher;
+  final int? selectedRoad;
   final bool passwordVisible;
+  final bool loading;
+  final String? error;
+  final bool? usernameError;
+  final bool? passwordError;
 
   LoginState changeWith({
-    String? username,
-    String? password,
+    List<StudentModel>? listStudent,
+    List<TeacherModel>? listTeacher,
+    int? selectedRoad,
     bool? passwordVisible,
-}){
+    bool? loading,
+    String? error,
+    bool? usernameError,
+    bool? passwordError,
+  }) {
     return LoginState(
-      username: username ?? this.username,
-      password: password ?? this.password,
-      passwordVisible: passwordVisible ?? this.passwordVisible
+      listStudent: listStudent,
+      listTeacher: listTeacher,
+      selectedRoad: selectedRoad,
+      passwordVisible: passwordVisible ?? this.passwordVisible,
+      loading: loading ?? this.loading,
+      error: error,
+      usernameError: usernameError,
+      passwordError: passwordError,
     );
   }
+
   @override
   // TODO: implement props
-  List<Object?> get props => [username,password,passwordVisible];
+  List<Object?> get props =>
+      [listStudent, listTeacher, selectedRoad, passwordVisible,loading,error,usernameError,passwordError];
 }

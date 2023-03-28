@@ -1,88 +1,96 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:school_app/data/dummy_data.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:school_app/utilities/common.dart';
-
+import 'package:school_app/widgets/image/grid_image.dart';
 import '../../utilities/assets_common.dart';
 import '../../utilities/colors.dart';
-import '../../utilities/string.dart';
 import '../../utilities/text_styles.dart';
-import 'comment.dart';
 
-class PostsStyles extends StatelessWidget {
-  const PostsStyles({Key? key, this.data}) : super(key: key);
-  final Student? data;
+class PostStyles extends StatelessWidget {
+  const PostStyles({Key? key, this.nameUserPosts,this.avatarUserPost, this.callbackComment, this.colorIcon, this.listUserLike, this.callbackLike, this.listStr, this.content, this.listImage}) : super(key: key);
+  final String? nameUserPosts;
+  final String? avatarUserPost;
+  final VoidCallback? callbackComment;
+  final VoidCallback? callbackLike;
+  final bool? colorIcon;
+  final int? listUserLike;
+  final String? listStr;
+  final String? content;
+  final List<String>? listImage;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 17),
+      margin: const EdgeInsets.symmetric(vertical: 17),
       decoration: BoxDecoration(
           color: CustomColors.greenColor,
           borderRadius: BorderRadius.circular(15)),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 13),
+        padding: const EdgeInsets.symmetric(vertical: 13,horizontal: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              padding: EdgeInsets.only(left: 20, right: 25),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                        CircleAvatar(
-                          child: SvgPicture.asset(data!.avata),
-                          radius: 26),
-                      SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '${data!.name}',
-                            style: TextStyles.textNotoSanBold(16),
-                          ),
-                          SizedBox(height: 3),
-                          Text(
-                            '18:01 19/8/2020',
-                            style: TextStyles.textNotoSanMedium(14),
-                          ),
-                          SizedBox(height: 6)
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Text(Strings.STATUS, style: TextStyles.textNotoSanMedium(16)),
-                ],
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                        backgroundImage: NetworkImage(avatarUserPost!),
+                        radius: 26),
+                    const SizedBox(width: 10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          nameUserPosts??'',
+                          style: TextStyles.textNotoSanBold(16),
+                        ),
+                       const SizedBox(height: 3),
+                        Text(
+                          '18:01 19/8/2020',
+                          style: TextStyles.textNotoSanMedium(14),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Text(content??'', style: TextStyles.textNotoSanMedium(16)),
+              ],
             ),
+            const SizedBox(height: 10),
+            GridImage(image: listImage!),
+            const SizedBox(height: 8),
             Container(
-                margin: EdgeInsets.symmetric(vertical: 25),
-                child: Image.asset(Images.statusImages)),
-            Container(
-              height: 2,
-              width: MediaQuery.of(context).size.width * 0.88,
+              height: 1.5,
+              width: MediaQuery.of(context).size.width,
               color: CustomColors.purpleColor,
             ),
+            const SizedBox(height: 5),
+            Text(listStr??'', style: TextStyles.textInterMedium(16),),
+            const SizedBox(height: 5),
             Container(
               width: MediaQuery.of(context).size.width * 0.88,
-              padding: EdgeInsets.only(top: 16),
+              padding: const EdgeInsets.only(top: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
-                      CustomIcon(IconConstant.likeIcon,size: 30),
+                      GestureDetector(
+                        onTap: callbackLike,
+                          child: CustomIcon(IconConstant.likeIcon,size: 30, color: colorIcon==true?Colors.pinkAccent:CustomColors.purpleColor,)),
                       Text(
-                        '125',
+                        listUserLike.toString(),
                         style: TextStyles.textNotoSanMedium(14),
                       )
                     ],
                   ),
                   Row(
                     children: [
-                      CustomIcon(IconConstant.statusHeathIcon,size: 30),
+                     const CustomIcon(IconConstant.statusHeathIcon,size: 30),
                       Text(
                         '12',
                         style: TextStyles.textNotoSanMedium(14),
@@ -90,15 +98,13 @@ class PostsStyles extends StatelessWidget {
                     ],
                   ),
                   GestureDetector(
-                    child: Row(children: [
-                      CustomIcon(IconConstant.commentIcon,size: 30),
+                    onTap: callbackComment!,
+                    child:  Row(children: [
+                     const CustomIcon(IconConstant.commentIcon,size: 30),
                       Text('20', style: TextStyles.textNotoSanMedium(14),
                       )
                     ],
                     ),
-                    onTap: () {
-                      _handleShowBottomSheet(context);
-                    },
                   ),
                 ],
               ),
@@ -108,14 +114,5 @@ class PostsStyles extends StatelessWidget {
       ),
     );
   }
-
-  _handleShowBottomSheet(BuildContext context) {
-    return showModalBottomSheet(
-      backgroundColor: Colors.transparent,
-        isScrollControlled: true,
-        context: context,
-        builder: (_) {
-          return BottomSheetComment();
-        });
-  }
 }
+

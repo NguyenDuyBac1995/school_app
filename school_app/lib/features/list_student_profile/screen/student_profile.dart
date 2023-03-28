@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:school_app/data/dummy_data.dart';
-import 'package:school_app/utilities/custom_styles.dart';
+import 'package:school_app/core/models/student_model.dart';
 
-import '../../utilities/assets_common.dart';
-import '../../utilities/colors.dart';
-import '../../utilities/common.dart';
-import '../../widgets/common_widget.dart';
-import '../../utilities/text_styles.dart';
+import '../../../utilities/assets_common.dart';
+import '../../../utilities/colors.dart';
+import '../../../utilities/common.dart';
+import '../../../widgets/common_widget.dart';
+import '../../../utilities/text_styles.dart';
 
 class StudentProfile extends StatefulWidget {
   const StudentProfile({Key? key , required this.dataStudent}) : super(key: key);
- final Student dataStudent;
+ final StudentModel dataStudent;
   @override
   State<StudentProfile> createState() => _StudentProfileState();
 }
@@ -27,11 +26,11 @@ class _StudentProfileState extends State<StudentProfile> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _nameController.text = widget.dataStudent.name;
-    _dateController.text = widget.dataStudent.date;
-    _schoolController.text = widget.dataStudent.school;
-    _classController.text = widget.dataStudent.class_studen;
-    _parentController.text = widget.dataStudent.parent;
+    _nameController.text = widget.dataStudent.name!;
+    _dateController.text = widget.dataStudent.date!;
+    _schoolController.text = widget.dataStudent.schoolName!;
+    _classController.text = widget.dataStudent.className!;
+    _parentController.text = widget.dataStudent.parentName!;
   }
   
   @override
@@ -51,7 +50,7 @@ class _StudentProfileState extends State<StudentProfile> {
               key: _fromKey,
               child: Column(
                 children: [
-                  CircleAvatar(child: CustomIcon(Images.homeItemRight, size: 80),radius: 65, backgroundColor: Colors.white,),
+                  CircleAvatar(backgroundImage: NetworkImage(widget.dataStudent.avata!),radius: 65, backgroundColor: Colors.white,),
                   SizedBox(height: 20),
                   Common().profileItemCommon('Họ tên',_nameController ),
                   Common().profileItemCommon('Ngày sinh:',_dateController ),

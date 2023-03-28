@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:school_app/utilities/common.dart';
 
 import '../../utilities/assets_common.dart';
 import '../../utilities/colors.dart';
@@ -84,15 +85,13 @@ Widget NotificationCommon(BuildContext context,{
             ],
           ),
         ),
-        Positioned(
+        const Positioned(
           bottom: 0,
           right: 0,
           left: 0,
-          child: Container(
-              height: 10,
-              width: 150,
-              child: SvgPicture.asset(Images.underlineItem)),
-        ),
+          child: FractionallySizedBox(
+            widthFactor: 0.8,
+              child: CustomUnderline()),),
         Align(
           alignment: Alignment.topRight,
           child: Container(

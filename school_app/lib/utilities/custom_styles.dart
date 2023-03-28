@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/utilities/colors.dart';
+import 'package:school_app/utilities/text_styles.dart';
 
 class CustomStyles {
   static InputDecoration inputDecorationBorder({
+    String? errorText,
     String? hintText,
     Color hintColor = CustomColors.purpleColor,
     Widget? label,
@@ -20,6 +22,8 @@ class CustomStyles {
     double hintSize =15
   }) {
     return InputDecoration(
+      errorText: errorText,
+      errorStyle: TextStyles.textInterMedium(20).copyWith(color: Colors.red),
       fillColor: fillColor,
       filled: true,
       suffixIconColor:CustomColors.purpleColor,
@@ -60,4 +64,5 @@ class CustomStyles {
       ),
     );
   }
+
 }

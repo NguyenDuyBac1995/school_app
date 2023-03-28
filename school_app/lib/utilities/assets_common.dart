@@ -11,6 +11,7 @@ class Images {
   static const homeItemRight = 'assets/images/home_itemRight.svg';
   static const statusImages = 'assets/images/image.png';
   static const avatarIcon1 = 'assets/images/Ellipse 104.svg';
+  static const avatarClass = "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/74.jpg";
 }
 
 

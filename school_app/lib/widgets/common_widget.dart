@@ -1,11 +1,13 @@
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/utilities/common.dart';
 import 'package:school_app/utilities/text_styles.dart';
-
 import '../utilities/assets_common.dart';
 import '../utilities/custom_styles.dart';
 
@@ -23,7 +25,25 @@ class Common {
         ListTile(
           leading: Padding(
             padding: EdgeInsets.symmetric(horizontal: 6),
-              child: CircleAvatar(child: CustomIcon(avatarAssets!, size: 50), backgroundColor: Colors.blue, radius: 30,)),
+              child: CachedNetworkImage(
+                key: UniqueKey(),
+                cacheManager: CacheManager(
+                    Config('customCacheKey',
+                      stalePeriod: const Duration(days: 10),
+                      maxNrOfCacheObjects: 100,
+                    )),
+                imageUrl: avatarAssets!,
+                placeholder: (context,url)=> const CircularProgressIndicator(),
+                errorWidget: (context, url, error)=> const Icon(Icons.error, size: 100,color: Colors.red,),
+                imageBuilder: (context, imageProvider){
+                  return CircleAvatar(
+                    backgroundImage: imageProvider,
+                    backgroundColor: Colors.blue,
+                    radius: 28,
+                  );
+                },
+              )
+          ),
           title: Padding(
             padding: EdgeInsets.only(bottom: 11),
             child: Text(
@@ -39,7 +59,7 @@ class Common {
             ),
               SizedBox(height: 4),
               Text(
-                "Cô $teacherName",
+                teacherName??'',
                 style: TextStyles.textInterMedium(14),
               )
             ],
@@ -48,7 +68,6 @@ class Common {
             style: TextStyles.textInterMedium(14),
           ),
           trailing: suffixIcon,
-
         );
   }
 
@@ -130,34 +149,6 @@ class Common {
           ),
         )
       ],
-    );
-  }
-
-  Widget underLine ({
-  Color color = CustomColors.purpleColor,
-    double? width,
-}){
-    return Container(
-      width: width,
-      child: Row(
-        children: [
-          Expanded(
-              child: Container(
-                  color:color, height: 1)),
-          Container(
-            height: 10,
-            width: 10,
-            decoration: BoxDecoration(
-                color: color,
-                shape: BoxShape.circle,
-                border: Border.all(
-                    color: Colors.white, width: 2)),
-          ),
-          Expanded(
-              child: Container(
-                  color: color, height: 1)),
-        ],
-      ),
     );
   }
 

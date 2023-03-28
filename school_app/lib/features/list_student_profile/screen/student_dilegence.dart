@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:flutter_month_picker/flutter_month_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:school_app/data/dummy_data.dart';
 import 'package:school_app/utilities/colors.dart';
+import 'package:school_app/utilities/common.dart';
 import 'package:school_app/utilities/custom_styles.dart';
-
-import '../../widgets/common_widget.dart';
-import '../../utilities/text_styles.dart';
+import '../../../utilities/text_styles.dart';
 
 class StudentDilegence extends StatefulWidget {
   const StudentDilegence({Key? key}) : super(key: key);
@@ -35,17 +32,17 @@ class _StudentDilegenceState extends State<StudentDilegence> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints.expand(),
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      constraints: const BoxConstraints.expand(),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(children: [
         Padding(
-          padding: EdgeInsets.only(bottom: 10),
+          padding: const EdgeInsets.only(bottom: 10),
           child: TextFormField(
             style: TextStyles.textInterMedium(17),
             controller: _textController,
             decoration: CustomStyles.inputDecorationBorder(
               borderColor: CustomColors.purpleColor,
-              suffixIcon: Icon(Icons.keyboard_arrow_down, size: 50,color: CustomColors.purpleColor,),
+              suffixIcon: const Icon(Icons.keyboard_arrow_down, size: 50,color: CustomColors.purpleColor,),
             ),
             onTap: ()=>pickDate(context),
           ),
@@ -58,8 +55,8 @@ class _StudentDilegenceState extends State<StudentDilegence> {
                   return GestureDetector(
                     child: Container(
                       height: 100,
-                      margin: EdgeInsets.only(top: 12),
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 17),
+                      margin: const EdgeInsets.only(top: 12),
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 17),
                       decoration: BoxDecoration(
                           color: _selectedIndex == index?CustomColors.pinkColor:CustomColors.greenColor,
                           borderRadius: BorderRadius.circular(15)),
@@ -72,25 +69,7 @@ class _StudentDilegenceState extends State<StudentDilegence> {
                             "${(lastDayOfMonth.day - index).toString().padLeft(2, '0')}/${DateFormat('MM/yyyy').format(lastDayOfMonth)}",
                             style: TextStyles.textInterBold(18).copyWith(color: _selectedIndex == index?Colors.white:CustomColors.purpleColor),
                           ),
-                          Row(
-                            children: [
-                              Expanded(
-                                  child: Container(
-                                      color:_selectedIndex == index?Colors.white:CustomColors.purpleColor, height: 1)),
-                              Container(
-                                height: 10,
-                                width: 10,
-                                decoration: BoxDecoration(
-                                    color: _selectedIndex == index?CustomColors.pinkColor:CustomColors.purpleColor,
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color: Colors.white, width: 2)),
-                              ),
-                              Expanded(
-                                  child: Container(
-                                      color: _selectedIndex == index?Colors.white:CustomColors.purpleColor, height: 1)),
-                            ],
-                          ),
+                          _selectedIndex ==index?CustomUnderline(color: Colors.white,circleColor: CustomColors.pinkColor):CustomUnderline(),
                           _selectedIndex ==index?
                           Text(
                             'Nghỉ',
@@ -123,7 +102,6 @@ class _StudentDilegenceState extends State<StudentDilegence> {
     );
   }
   Future pickDate(BuildContext context) async {
-    final initialDate = DateTime.now();
     final newDate = await DatePicker.showPicker(
         context,
         pickerModel: CustomMonthPicker(

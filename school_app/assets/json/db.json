@@ -1,0 +1,124 @@
+{
+  "student": [
+    {
+      "userName": "NguyenAnhKhoi@gmail.com",
+      "password": "Anhyeuem12",
+      "name": "Nguyễn Anh Khôi",
+      "date": "1958-05-23",
+      "school_name": "Mầm non Tứ Hiệp",
+      "class_name": "Lớp Lá",
+      "teacher_name": "Lê Minh Hằng",
+      "parent_name": "Nguyễn Khôi Anh",
+      "number_phone": "0978217281",
+      "avata": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/74.jpg",
+      "gender": false,
+      "id": 1
+    },
+    {
+      "userName": "NguyenBadao@gmail.com",
+      "password": "Anhyeuem12",
+      "name": "Nguyễn Bá Đạo",
+      "date": "1972-07-29",
+      "school_name": "Mầm non Tứ Hiệp",
+      "class_name": "Lớp Lá",
+      "teacher_name": "Lê Minh Hằng",
+      "parent_name": "Nguyễn Khôi Anh",
+      "number_phone": "0978217281",
+      "avata": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/58.jpg",
+      "gender": true,
+      "id": 2
+    },
+    {
+      "userName": "TranVanLong@gmail.com",
+      "password": "Anhyeuem12",
+      "name": "Trần Văn Long",
+      "date": "1948-12-09",
+      "school_name": "Mầm non Tứ Hiệp",
+      "class_name": "Lớp Lá",
+      "teacher_name": "Lê Minh Hằng",
+      "parent_name": "Nguyễn Khôi Anh",
+      "number_phone": "0978217281",
+      "avata": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1000.jpg",
+      "gender": true,
+      "id": 3
+    },
+    {
+      "userName": "LeBaMinh@gmail.com",
+      "password": "Anhyeuem12",
+      "name": "Lê Bá Minh",
+      "date": "1957-07-22",
+      "school_name": "Mầm non Tứ Hiệp",
+      "class_name": "Lớp Lá",
+      "teacher_name": "Lê Minh Hằng",
+      "parent_name": "Nguyễn Khôi Anh",
+      "number_phone": "0978217281",
+      "avata": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1190.jpg",
+      "gender": true,
+      "id": 5
+    },
+    {
+      "userName": "NguyenVanHieu@gmail.com",
+      "password": "Anhyeuem12",
+      "name": "Nguyễn Văn Hiếu",
+      "date": "1967-06-02",
+      "school_name": "Mầm non Tứ Hiệp",
+      "class_name": "Lớp Lá",
+      "teacher_name": "Lê Minh Hằng",
+      "parent_name": "Nguyễn Khôi Anh",
+      "number_phone": "0978217281",
+      "avata": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1123.jpg",
+      "gender": false,
+      "id": 6
+    },
+    {
+      "userName": "NguyenVanMinh@gmail.com",
+      "password": "Anhyeuem12",
+      "name": "Nguyễn Văn Minh",
+      "date": "2019-06-02",
+      "school_name": "Mầm non Tứ Hiệp",
+      "class_name": "Lớp Mầm",
+      "teacher_name": "Lê Minh Hằng",
+      "parent_name": "Nguyễn Thị Bình",
+      "number_phone": "0978217281",
+      "avata": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1123.jpg",
+      "gender": false,
+      "id": 7
+    },
+    {
+      "id": 8,
+      "userName": "NguyenNhatLinh@gmail.com",
+      "password": "Anhyeuem12",
+      "name": "Nguyễn Nhật Linh",
+      "date": "2019-06-02",
+      "school_name": "Mầm non Tứ Hiệp",
+      "class_name": "Lớp Mầm",
+      "teacher_name": "Lê Minh Hằng",
+      "parent_name": "Nguyễn Thị Bình",
+      "number_phone": "0978217281",
+      "avata": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1123.jpg",
+      "gender": false
+    }
+  ],
+  "teacher": [
+    {
+      "id": 1,
+      "userName": "Giaovien@gmail.com",
+      "password": "Anhyeuem12",
+      "name": "Lê Minh Hằng",
+      "date": "1980-06-02",
+      "avata": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1123.jpg",
+      "number_phone": "0978217281",
+      "gender": false
+    },
+    {
+      "id": 2,
+      "userName": "Giaovien2@gmail.com",
+      "password": "Anhyeuem12",
+      "name": "Lê Thị Thắm",
+      "date": "1981-06-02",
+      "avata": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1123.jpg",
+      "number_phone": "0978217282",
+      "gender": false
+    }
+  ]
+}

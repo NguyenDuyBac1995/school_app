@@ -6,12 +6,14 @@ import 'package:school_app/features/main/screens/main_screen.dart';
 import 'package:school_app/features/remind/screens/remind_detail_screen.dart';
 import 'package:school_app/features/remind/screens/remind_list_screen.dart';
 import 'package:school_app/features/remind/screens/remind_screen.dart';
+import 'package:school_app/features/school_class/screens/create_posts_screen.dart';
+import 'package:school_app/features/school_class/screens/school_class_screen.dart';
 import 'package:school_app/features/splash/screens/splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:school_app/features/teacher_route/list_student_screen.dart';
-import 'package:school_app/features/teacher_route/student_attendance_screen.dart';
+import 'package:school_app/features/list_student_profile/screen/list_student_attendance_screen.dart';
 import '../core/models/data_bundle.dart';
-import '../features/student_profile/student_information_screen.dart';
+import '../features/list_student_profile/screen/list_student_screen.dart';
+import '../features/list_student_profile/screen/student_information_screen.dart';
 import '../features/remind/screens/create_new_remind_screen.dart';
 import '404.dart';
 
@@ -30,6 +32,8 @@ class RouterGenerator {
   static const routeChangePassword = '/changePassword';
   static const routeListStudentScreen = '/listStudent';
   static const routeStudentAttendance = '/studentAttendance';
+  static const routeCreatePosts = '/createPosts';
+  static const routeSchoolClassScreen = '/schoolClassScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
@@ -55,7 +59,7 @@ class RouterGenerator {
       case routeRemindList:
         if (args is DataBundle) {
           return MaterialPageRoute(
-              builder: (_) => RemindListScreen(data: args.data!));
+              builder: (_) => RemindListScreen(data: args.listData!));
         }
         break;
       case routeRemindDetail:
@@ -77,15 +81,19 @@ class RouterGenerator {
       case routeListStudentScreen:
         if(args is DataBundle){
           return MaterialPageRoute(
-              builder: (_) =>ListStudentScreen(data: args.data!,));
+              builder: (_) =>ListStudentScreen(data: args.listData!,));
         }
         break;
       case routeStudentAttendance:
         if(args is DataBundle){
           return MaterialPageRoute(
-              builder: (_) =>StudentAttendanceScreen(data: args.data!,));
+              builder: (_) =>StudentAttendanceScreen(data: args.listData!,));
         }
         break;
+      case routeCreatePosts:
+        return MaterialPageRoute(builder: (_)=>CreatePostsScreen());
+      case routeSchoolClassScreen:
+        return MaterialPageRoute(builder: (_)=>SchoolClassScreen());
       default:
         break;
     }

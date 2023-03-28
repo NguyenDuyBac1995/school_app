@@ -1,14 +1,13 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:school_app/utilities/assets_common.dart';
+import 'package:go_router/go_router.dart';
+import 'package:school_app/routers/app_router_name.dart';
 import 'package:school_app/utilities/common.dart';
 import 'package:school_app/widgets/background_container.dart';
-import 'package:school_app/widgets/common_widget.dart';
 import '../../../routers/fluro_navigator.dart';
 import '../../../routers/router_generator.dart';
+import '../../../widgets/logo_school/logo_school.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -22,60 +21,80 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 3), () { NavigatorUtils.push(context, RouterGenerator.routeLoginScreen);});
+    Timer(const Duration(seconds: 3), () {
+      // NavigatorUtils.push(context, RouterGenerator.routeLoginScreen);
+      context.goNamed(AppRouterName.loginRouter);
+    });
   }
 
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    final orientation = MediaQuery.of(context).orientation;
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     return MainContainer(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
           child:Container(
-            constraints: BoxConstraints.expand(),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      height: MediaQuery.of(context).size.width*0.6,
-                      width: MediaQuery.of(context).size.width*0.6,
-                      child: SvgPicture.asset(
-                        Images.splashImage,
-                        fit: BoxFit.cover,
-                        alignment: Alignment.center,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    GradientText('Welcome to',
-                        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                        gradient: LinearGradient(
-                            colors: [
-                              Colors.redAccent.shade400,
-                              Colors.lightBlueAccent.shade200,
-                              Colors.yellowAccent,
-                            ]
-                        ))
+            constraints: const BoxConstraints.expand(),
+            child: orientation == Orientation.portrait ?
+                Align(
+                  alignment: const Alignment(0.0,-0.6),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      GetLogo(),
+                      SplashText()
+                    ],
+                  ),
+                ):
+                Row(
+                  children: const [
+                    Expanded(child: GetLogo()),
+                    Expanded(child: SplashText()),
                   ],
-                ),
-                SizedBox(height: 15,),
-                GradientText('School',
-                    style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
-                    gradient: LinearGradient(
-                        colors: [
-                          Colors.redAccent.shade400,
-                          Colors.lightBlueAccent.shade200,
-                          Colors.yellowAccent,
-                        ]
-                    )),
-              ],
-            )
-          )
+                )
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SplashText extends StatelessWidget {
+  const SplashText({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return FittedBox(
+      child: FractionallySizedBox(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 20),
+            GradientText('Welcome to',
+                style: TextStyle(fontSize: size.width*0.08, fontWeight: FontWeight.bold),
+                gradient: LinearGradient(
+                    colors: [
+                      Colors.redAccent.shade400,
+                      Colors.lightBlueAccent.shade200,
+                      Colors.yellowAccent,
+                    ]
+                )),
+            const SizedBox(height: 5,),
+            GradientText('School',
+                style: TextStyle(fontSize: size.width*0.12, fontWeight: FontWeight.bold),
+                gradient: LinearGradient(
+                    colors: [
+                      Colors.redAccent.shade400,
+                      Colors.lightBlueAccent.shade200,
+                      Colors.yellowAccent,
+                    ]
+                )),
+          ],
         ),
       ),
     );

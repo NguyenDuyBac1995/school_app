@@ -1,6 +1,7 @@
-import '../../data/dummy_data.dart';
+import 'package:school_app/core/models/student_model.dart';
 
 class DataBundle{
-  Student? data;
-  DataBundle({this.data});
+  StudentModel? data;
+  List<StudentModel>? listData;
+  DataBundle({this.data, this.listData});
 }

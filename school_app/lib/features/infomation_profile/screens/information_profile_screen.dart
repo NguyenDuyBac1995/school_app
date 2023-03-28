@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:school_app/routers/app_router_name.dart';
 import 'package:school_app/routers/fluro_navigator.dart';
 import 'package:school_app/routers/router_generator.dart';
 import 'package:school_app/utilities/assets_common.dart';
 import 'package:school_app/utilities/colors.dart';
 import 'package:school_app/widgets/appbar/app_bar.dart';
-import 'package:school_app/widgets/background_container.dart';
 import 'package:school_app/widgets/common_widget.dart';
 import 'package:school_app/utilities/text_styles.dart';
 
@@ -26,88 +27,80 @@ class _InformationProfileScreenState extends State<InformationProfileScreen> {
       appBar: appBarCommonV1(context,strTitle: 'Thông tin cá nhân' ),
       body: SafeArea(
         child: SingleChildScrollView(
-      child: Container(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
-          child: Stack(
-            children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  decoration: BoxDecoration(
-                    color: CustomColors.greenColor,
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                child: Stack(
-                  children: [
-                    Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: Container(
-                        height: 70,
-                        width: 70,
-                        child: SvgPicture.asset(Images.notificationIcon2)),
-                  ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 100),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Common().buttonCommon(
-                            textIcon: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                SizedBox(width: 25,),
-                                Text('Đổi thông tin cá nhân',style: TextStyles.textPoppinMedium(20),textAlign: TextAlign.start,)
-                              ],
-                            ),
-                            height: 65,
-                            colorBorder: CustomColors.purpleColor,
-                            callBack: ()=>NavigatorUtils.push(context, RouterGenerator.routeChangeInformationProfile)
-                          ),
-                          SizedBox(height: 15),
-                          Common().buttonCommon(
-                              textIcon: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  SizedBox(width: 25,),
-                                  Text('Đổi mật khẩu',style: TextStyles.textPoppinMedium(20),textAlign: TextAlign.start,)
-                                ],
-                              ),
-                              height: 65,
-                              colorBorder: CustomColors.purpleColor,
-                            callBack: ()=>NavigatorUtils.push(context, RouterGenerator.routeChangePassword)
-                          ),
-                          SizedBox(height: 15),
-                          Common().buttonCommon(
-                              textIcon: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  SizedBox(width: 25,),
-                                  Text('Đăng xuất',style: TextStyles.textPoppinMedium(20),textAlign: TextAlign.start,)
-                                ],
-                              ),
-                              height: 65,
-                              colorBorder: CustomColors.purpleColor,
-                            callBack: ()=>Navigator.pop(context),
-                          )
-                        ],
+      child: Stack(
+        children: [
+          Container(
+            height: 460,
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              decoration: BoxDecoration(
+                color: CustomColors.greenColor,
+                borderRadius: BorderRadius.circular(14),
+              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: const EdgeInsets.fromLTRB(20, 100, 20, 60),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Common().buttonCommon(
+                        textIcon: Row(
+                          children: [
+                            const SizedBox(width: 25,),
+                            Text('Đổi thông tin cá nhân',style: TextStyles.textPoppinMedium(20),textAlign: TextAlign.start,)
+                          ],
+                        ),
+                        height: 65,
+                        colorBorder: CustomColors.purpleColor,
+                        callBack: ()=>context.goNamed(AppRouterName.changeInformation)
                       ),
-                    )
-                  ],
+                      const SizedBox(height: 15),
+                      Common().buttonCommon(
+                          textIcon: Row(
+                            children: [
+                              const SizedBox(width: 25,),
+                              Text('Đổi mật khẩu',style: TextStyles.textPoppinMedium(20),textAlign: TextAlign.start,)
+                            ],
+                          ),
+                          height: 65,
+                          colorBorder: CustomColors.purpleColor,
+                        callBack: ()=>context.goNamed(AppRouterName.changePasswordRouter)
+                      ),
+                      const SizedBox(height: 15),
+                      Common().buttonCommon(
+                          textIcon: Row(
+                            children: [
+                              const SizedBox(width: 25,),
+                              Text('Đăng xuất',style: TextStyles.textPoppinMedium(20),textAlign: TextAlign.start,)
+                            ],
+                          ),
+                          height: 65,
+                          colorBorder: CustomColors.purpleColor,
+                        callBack: ()=>Navigator.pop(context),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Container(
-                  padding: EdgeInsets.only(right: 5, top: 10),
-                  child: Transform.scale(scale: 1.15,
-                      child: SvgPicture.asset(Images.notificationIcon1)),
-                ),
-              ),
-            ],
+                SizedBox(
+                    height: 70,
+                    width: 70,
+                    child: SvgPicture.asset(Images.notificationIcon2)),
+              ],
+            ),
           ),
-        ),
+          Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              padding: const EdgeInsets.only(right: 5, top: 10),
+              child: Transform.scale(scale: 1.15,
+                  child: SvgPicture.asset(Images.notificationIcon1)),
+            ),
+          ),
+        ],
+      ),
       ),
       ),
     );
